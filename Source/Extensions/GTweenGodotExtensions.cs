@@ -3,10 +3,10 @@ using GTweens.Delegates;
 using GTweens.TweenBehaviours;
 using GTweens.Tweeners;
 using GTweens.Tweens;
-using GTweensGodot.Source.Contexts;
-using GTweensGodot.Source.Tweeners;
+using GTweensGodot.Tweeners;
+using GodotGTweensContextNode = GTweensGodot.Contexts.GodotGTweensContextNode;
 
-namespace GTweensGodot.Source.Extensions;
+namespace GTweensGodot.Extensions;
 
 public static class GTweenGodotExtensions
 {
@@ -25,6 +25,19 @@ public static class GTweenGodotExtensions
     {
         InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
         tweenBehaviour.Add(new GodotVector2Tweener(currValueGetter, setter, finalValueGetter, duration, validation));
+        return new GTween(tweenBehaviour);
+    }
+    
+    public static GTween To(
+        Tweener<Vector3>.Getter currValueGetter, 
+        Tweener<Vector3>.Setter setter,
+        Tweener<Vector3>.Getter finalValueGetter, 
+        float duration, 
+        ValidationDelegates.Validation validation
+    )
+    {
+        InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
+        tweenBehaviour.Add(new GodotVector3Tweener(currValueGetter, setter, finalValueGetter, duration, validation));
         return new GTween(tweenBehaviour);
     }
 }

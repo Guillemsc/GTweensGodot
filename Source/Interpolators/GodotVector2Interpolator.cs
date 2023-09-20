@@ -2,7 +2,7 @@
 using GTweens.Easings;
 using GTweens.Interpolators;
 
-namespace GTweensGodot.Source.Interpolators;
+namespace GTweensGodot.Interpolators;
 
 public sealed class GodotVector2Interpolator : IInterpolator<Vector2>
 {

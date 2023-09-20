@@ -1,7 +1,7 @@
 ﻿using Godot;
 using GTweens.Contexts;
 
-namespace GTweensGodot.Source.Contexts;
+namespace GTweensGodot.Contexts;
 
 public partial class GodotGTweensContextNode : Node
 {

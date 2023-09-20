@@ -5,9 +5,9 @@ using GTweensGodot.Interpolators;
 
 namespace GTweensGodot.Tweeners;
 
-public sealed class GodotVector2Tweener : Tweener<Vector2>
+public sealed class GodotVector3Tweener : Tweener<Vector3>
 {
-    public GodotVector2Tweener(
+    public GodotVector3Tweener(
         Getter currentValueGetter,
         Setter setter,
         Getter finalValueGetter,
@@ -19,7 +19,7 @@ public sealed class GodotVector2Tweener : Tweener<Vector2>
             setter,
             finalValueGetter,
             duration,
-            GodotVector2Interpolator.Instance, 
+            GodotVector3Interpolator.Instance, 
             validation
         )
     {

@@ -1,8 +1,9 @@
 ﻿using Godot;
 using GTweens.Extensions;
 using GTweens.Tweens;
+using GTweensGodot.Examples.Scripts;
 
-namespace GTweensGodot.Source.Extensions;
+namespace GTweensGodot.Extensions;
 
 public static class Node2DExtensions
 {
@@ -94,7 +95,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationDegrees(this Node2D node2D, float to, float duration)
+    public static GTween TweenGlobalRotationDegreesWithin180Range(this Node2D node2D, float to, float duration)
     {
         return GTweenExtensions.To(
             () => node2D.GlobalRotationDegrees,
@@ -105,7 +106,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenRotationDegrees(this Node2D node2D, float to, float duration)
+    public static GTween TweenRotationDegreesWithin180Range(this Node2D node2D, float to, float duration)
     {
         return GTweenExtensions.To(
             () => node2D.RotationDegrees,
@@ -114,6 +115,16 @@ public static class Node2DExtensions
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(node2D)
         );
+    }
+    
+    public static GTween TweenGlobalRotationDegrees(this Node2D node2D, float to, float duration)
+    {
+        return node2D.TweenGlobalRotation(to * MathExtensions.Deg2Rad, duration);
+    }
+    
+    public static GTween TweenRotationDegrees(this Node2D node2D, float to, float duration)
+    {
+        return node2D.TweenRotation(to * MathExtensions.Deg2Rad, duration);
     }
     
     public static GTween TweenGlobalScale(this Node2D node2D, Vector2 to, float duration)
@@ -160,7 +171,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenlScaleX(this Node2D node2D, float to, float duration)
+    public static GTween TweenScaleX(this Node2D node2D, float to, float duration)
     {
         return GTweenExtensions.To(
             () => node2D.Scale.X,

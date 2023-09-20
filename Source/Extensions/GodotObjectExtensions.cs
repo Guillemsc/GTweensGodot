@@ -1,7 +1,7 @@
 ﻿using Godot;
 using GTweens.Delegates;
 
-namespace GTweensGodot.Source.Extensions;
+namespace GTweensGodot.Extensions;
 
 public static class GodotObjectExtensions
 {

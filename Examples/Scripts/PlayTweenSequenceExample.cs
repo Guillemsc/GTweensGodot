@@ -2,7 +2,7 @@
 using GTweens.Builders;
 using GTweens.Easings;
 using GTweens.Tweens;
-using GTweensGodot.Source.Extensions;
+using GTweensGodot.Extensions;
 
 namespace GTweensGodot.Examples.Scripts;
 
