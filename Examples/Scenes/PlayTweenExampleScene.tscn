@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvxfwchmv3dt"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/PlayTweenExample.cs" id="1_7ph6d"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://Minigame/Textures/KenneyBallTextures/background_blue.png" id="2_b4jus"]
+
+[node name="PlayTweenExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("NodeToMove")]
+script = ExtResource("1_7ph6d")
+NodeToMove = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_b4jus")
+
+[node name="Camera2D" type="Camera2D" parent="."]
