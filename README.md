@@ -94,16 +94,45 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ## 📚 Getting started
+### Nomenclature
+- Tween: a generic word that indicates some or multiple values being animated.
+- Sequence: an combination of tweens that get animated as a group.
+
+### Prefixes
+Prefixes are important to use the most out of IntelliSense, so try to remember these:
+- **Tween**: prefix for all tween shortcuts (operations that can be started directly from a known object, like a Node2D or a Control).
+	```csharp
+	node2D.TweenPositionX(100f, 1f);
+	﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
+	```
+- **Set**: prefix for all settings that can be chained to a tween (except for From, since it's applied as a setting but is not really a setting).
+	```csharp
+	myTween.SetLoops(4).SetEasing(Easing.InOutCubic);
+	```
+- **On**: prefix for all callbacks that can be chained to a tween.
+	```csharp
+	myTween.OnStart(myStartFunction).OnComplete(myCompleteFunction);
+	```
+ 
+### Generic tweening
+This is the most flexible way of tweening and allows you to tween almost any value.
 ```csharp
-public partial class TweenExample : Node
-{
-    [Export] public Node2D Target;
-	
-    public override void _Ready()
-    {
-        Target.TweenPosition(new Vector2(100, 0), 3)
-            .SetEasing(Easing.InOutCubic)
-            .Play();
-    }
-}
+ GTweenExtensions.Tween(getter, setter, to, duration)
 ```
+- Getter: a delegate that returns the value of the property to tween. Can be written as a lambda like this: () => myValue
+where myValue is the name of the property to tween.
+- Setter: a delegate that sets the value of the property to tween. Can be written as a lambda like this: x => myValue = x
+where myValue is the name of the property to tween.
+- To: the end value to reach.
+- Duration: the duration of the tween in seconds.
+
+### Shortcut tweening
+GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can start a tween directly from a reference to these objects, like:
+```csharp
+node2D.TweenPositionX(100f, 1f);
+node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
+﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
+```
+
+### Sequences
+ 
