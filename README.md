@@ -135,4 +135,23 @@ node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
 ```
 
 ### Sequences
+Sequences are a combination of tweens that get animated as a group. 
+Sequences can be contained inside other sequences without any limit to the depth of the hierarchy.
+To create sequences, you need to use the helper `GTweenSequenceBuilder`.
+- First you call to start creating a new sequence `New()`.
+- Next you `Append()` or `Join()` any tweens to the sequence.
+- Finally you call `Build()` to get the generated sequence Tween.
+```csharp
+ GTween tween = GTweenSequenceBuilder.New()
+	.Append(Target.TweenPositionX(100, 0.5f))
+		.Join(Target.TweenScale(new Vector2(2, 2), 1))
+	.Append(Target.TweenPositionY(100, 1))
+	.AppendTime(0.5f)
+	.Append(Target.TweenPositionX(0, 1))
+	.AppendCallback(() => GD.Print("I'm finished!"))
+	.Build();
+        
+tween.SetEasing(Easing.InOutCubic);
+tween.Play();
+```
  
