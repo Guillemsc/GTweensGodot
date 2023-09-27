@@ -40,4 +40,17 @@ public static class GTweenGodotExtensions
         tweenBehaviour.Add(new GodotVector3Tweener(currValueGetter, setter, finalValueGetter, duration, validation));
         return new GTween(tweenBehaviour);
     }
+    
+    public static GTween To(
+        Tweener<Color>.Getter currValueGetter, 
+        Tweener<Color>.Setter setter,
+        Tweener<Color>.Getter finalValueGetter, 
+        float duration, 
+        ValidationDelegates.Validation validation
+    )
+    {
+        InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
+        tweenBehaviour.Add(new GodotColorTweener(currValueGetter, setter, finalValueGetter, duration, validation));
+        return new GTween(tweenBehaviour);
+    }
 }

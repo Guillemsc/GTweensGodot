@@ -4,9 +4,9 @@ using GTweens.Tweens;
 
 namespace GTweensGodot.Extensions;
 
-public static class Node2DExtensions
+public static class ControlExtensions
 {
-    public static GTween TweenGlobalPosition(this Node2D target, Vector2 to, float duration)
+    public static GTween TweenGlobalPosition(this Control target, Vector2 to, float duration)
     {
         return GTweenGodotExtensions.To(
             () => target.GlobalPosition,
@@ -17,7 +17,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalPositionX(this Node2D target, float to, float duration)
+    public static GTween TweenGlobalPositionX(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalPosition.X,
@@ -28,7 +28,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalPositionY(this Node2D target, float to, float duration)
+    public static GTween TweenGlobalPositionY(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalPosition.Y,
@@ -39,7 +39,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenPosition(this Node2D target, Vector2 to, float duration)
+    public static GTween TweenPosition(this Control target, Vector2 to, float duration)
     {
         return GTweenGodotExtensions.To(
             () => target.Position,
@@ -50,7 +50,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenPositionX(this Node2D target, float to, float duration)
+    public static GTween TweenPositionX(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.Position.X,
@@ -61,7 +61,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenPositionY(this Node2D target, float to, float duration)
+    public static GTween TweenPositionY(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.Position.Y,
@@ -72,18 +72,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotation(this Node2D target, float to, float duration)
-    {
-        return GTweenExtensions.Tween(
-            () => target.GlobalRotation,
-            current => target.GlobalRotation = current, 
-            () => to, 
-            duration,
-            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
-        );
-    }
-    
-    public static GTween TweenRotation(this Node2D target, float to, float duration)
+    public static GTween TweenRotation(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation,
@@ -94,18 +83,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationDegreesWithin180Range(this Node2D target, float to, float duration)
-    {
-        return GTweenExtensions.Tween(
-            () => target.GlobalRotationDegrees,
-            current => target.GlobalRotationDegrees = current, 
-            () => to, 
-            duration,
-            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
-        );
-    }
-    
-    public static GTween TweenRotationDegreesWithin180Range(this Node2D target, float to, float duration)
+    public static GTween TweenRotationDegreesWithin180Range(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.RotationDegrees,
@@ -116,50 +94,12 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationDegrees(this Node2D target, float to, float duration)
-    {
-        return target.TweenGlobalRotation(to * MathExtensions.Deg2Rad, duration);
-    }
-    
-    public static GTween TweenRotationDegrees(this Node2D target, float to, float duration)
+    public static GTween TweenRotationDegrees(this Control target, float to, float duration)
     {
         return target.TweenRotation(to * MathExtensions.Deg2Rad, duration);
     }
     
-    public static GTween TweenGlobalScale(this Node2D target, Vector2 to, float duration)
-    {
-        return GTweenGodotExtensions.To(
-            () => target.GlobalScale,
-            current => target.GlobalScale = current, 
-            () => to, 
-            duration,
-            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
-        );
-    }
-    
-    public static GTween TweenGlobalScaleX(this Node2D target, float to, float duration)
-    {
-        return GTweenExtensions.Tween(
-            () => target.GlobalScale.X,
-            current => target.GlobalScale = new Vector2(current, target.GlobalScale.Y), 
-            () => to, 
-            duration,
-            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
-        );
-    }
-    
-    public static GTween TweenGlobalScaleY(this Node2D target, float to, float duration)
-    {
-        return GTweenExtensions.Tween(
-            () => target.GlobalScale.Y,
-            current => target.GlobalScale = new Vector2(target.GlobalScale.X, current), 
-            () => to, 
-            duration,
-            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
-        );
-    }
-    
-    public static GTween TweenScale(this Node2D target, Vector2 to, float duration)
+    public static GTween TweenScale(this Control target, Vector2 to, float duration)
     {
         return GTweenGodotExtensions.To(
             () => target.Scale,
@@ -170,7 +110,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenScaleX(this Node2D target, float to, float duration)
+    public static GTween TweenScaleX(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.Scale.X,
@@ -181,7 +121,7 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenScaleY(this Node2D target, float to, float duration)
+    public static GTween TweenScaleY(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.Scale.Y,
@@ -192,22 +132,55 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalSkew(this Node2D target, float to, float duration)
+    public static GTween TweenSize(this Control target, Vector2 to, float duration)
     {
-        return GTweenExtensions.Tween(
-            () => target.GlobalSkew,
-            current => target.GlobalSkew = current, 
+        return GTweenGodotExtensions.To(
+            () => target.Size,
+            current => target.Size = current, 
             () => to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
     
-    public static GTween TweenSkew(this Node2D target, float to, float duration)
+    public static GTween TweenSizeX(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
-            () => target.Skew,
-            current => target.Skew = current, 
+            () => target.Size.X,
+            current => target.Size = new Vector2(current, target.Size.Y), 
+            () => to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenSizeY(this Control target, float to, float duration)
+    {
+        return GTweenExtensions.Tween(
+            () => target.Size.Y,
+            current => target.Size = new Vector2(target.Size.X, current), 
+            () => to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenPivotOffset(this Control target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.To(
+            () => target.PivotOffset,
+            current => target.PivotOffset = current, 
+            () => to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenPivotOffsetX(this Control target, float to, float duration)
+    {
+        return GTweenExtensions.Tween(
+            () => target.PivotOffset.X,
+            current => target.PivotOffset = new Vector2(current, target.PivotOffset.Y), 
             () => to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
