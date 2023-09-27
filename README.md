@@ -4,7 +4,7 @@ GTweensGodot
 is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
-## Features
+## 🤜 Features
 - Simple API: GTweensGodot provides an intuitive and easy-to-use API with C# extension methods.
 ```csharp
 public partial class TweenExample : Node
@@ -27,6 +27,22 @@ public partial class TweenExample : Node
 - Callback Events: Attach callbacks to tweens for event handling at various points in the animation timeline.
 - Godot Integration: Seamlessly integrates with the Godot engine, making it a natural extension of your Godot projects.
 
-## Installation
+## 📦 Installation
+1. [Download Latest Release](https://github.com/Guillemsc/GTweensGodot/releases/latest)
+2.  Unpack the `GTweensGodot` folder into the Godot project.
+3.  Go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
-## Getting started
+## 📚 Getting started
+```csharp
+public partial class TweenExample : Node
+{
+    [Export] public Node2D Target;
+	
+    public override void _Ready()
+    {
+        Target.TweenPosition(new Vector2(100, 0), 3)
+            .SetEasing(Easing.InOutCubic)
+            .Play();
+    }
+}
+```
