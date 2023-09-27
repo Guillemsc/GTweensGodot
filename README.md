@@ -30,7 +30,7 @@ public partial class TweenExample : Node
 ## 📦 Installation
 1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot` folder into the Godot project.
-3. Go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ## 📚 Getting started
 ```csharp
