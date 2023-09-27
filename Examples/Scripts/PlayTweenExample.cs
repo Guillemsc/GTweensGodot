@@ -11,7 +11,7 @@ public partial class PlayTweenExample : Node
 	
 	public override void _Ready()
 	{
-		GTween tween = NodeToMove.TweenGlobalPosition(new Vector2(100, 0), 3);
+		GTween tween = NodeToMove.TweenPosition(new Vector2(100, 0), 3);
 		tween.SetEasing(Easing.InOutCubic);
 		tween.Play();
 	}

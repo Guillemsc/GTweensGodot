@@ -29,6 +29,9 @@ public partial class ControlExample : Node2D
             .Append(Target.TweenSize(new Vector2(200, 200), tweenDuration))
             .Append(Target.TweenSizeX(100, tweenDuration))
             .Append(Target.TweenSizeY(100, tweenDuration))
+            .Append(Target.TweenPivotOffset(new Vector2(100, 100), tweenDuration))
+            .Append(Target.TweenPivotOffsetX(0, tweenDuration))
+            .Append(Target.TweenPivotOffsetY(0, tweenDuration))
             .Build();
         
         tween.SetEasing(Easing.InOutCubic);

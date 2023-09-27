@@ -25,8 +25,6 @@ public partial class Node2DExample : Node2D
             .Append(NodeToMove.TweenRotation(0, tweenDuration))
             .Append(NodeToMove.TweenGlobalRotationDegrees(180, tweenDuration))
             .Append(NodeToMove.TweenRotationDegrees(0, tweenDuration))
-            .Append(NodeToMove.TweenGlobalRotationDegreesWithin180Range(180, tweenDuration))
-            .Append(NodeToMove.TweenRotationDegreesWithin180Range(0, tweenDuration))
             .Append(NodeToMove.TweenGlobalScale(new Vector2(5, 5), tweenDuration))
             .Append(NodeToMove.TweenGlobalScaleX(1, tweenDuration))
             .Append(NodeToMove.TweenGlobalScaleY(1, tweenDuration))

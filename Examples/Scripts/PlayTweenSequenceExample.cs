@@ -8,15 +8,18 @@ namespace GTweensGodot.Examples.Scripts;
 
 public partial class PlayTweenSequenceExample : Node
 {
-    [Export] public Node2D NodeToMove;
+    [Export] public Node2D Target;
 	
     public override void _Ready()
     {
         GTween tween = GTweenSequenceBuilder.New()
-            .Append(NodeToMove.TweenGlobalPositionX(100, 1))
-            .Append(NodeToMove.TweenGlobalPositionY(100, 1))
-            .Append(NodeToMove.TweenGlobalPositionX(0, 1))
-            .Append(NodeToMove.TweenGlobalPositionY(0, 1))
+            .Append(Target.TweenPositionX(100, 0.5f))
+                .Join(Target.TweenScale(new Vector2(2, 2), 1))
+            .Append(Target.TweenPositionY(100, 1))
+            .AppendTime(0.5f)
+            .Append(Target.TweenPositionX(0, 1))
+            .Append(Target.TweenPositionY(0, 1))
+            .AppendCallback(() => GD.Print("I'm finished!"))
             .Build();
         
         tween.SetEasing(Easing.InOutCubic);

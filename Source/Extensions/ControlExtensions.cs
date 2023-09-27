@@ -186,4 +186,15 @@ public static class ControlExtensions
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
+    
+    public static GTween TweenPivotOffsetY(this Control target, float to, float duration)
+    {
+        return GTweenExtensions.Tween(
+            () => target.PivotOffset.Y,
+            current => target.PivotOffset = new Vector2(current, target.PivotOffset.Y), 
+            () => to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
 }

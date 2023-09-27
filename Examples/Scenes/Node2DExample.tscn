@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcf6gx881hoxt"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Node2DExample.cs" id="1_3tda3"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://Minigame/Textures/KenneyBallTextures/background_blue.png" id="2_2grr3"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_qqyvn"]
 
 [node name="Node2DExample" type="Node2D"]
 
@@ -13,6 +13,6 @@ NodeToMove = NodePath("../Node2D")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("2_2grr3")
+texture = ExtResource("2_qqyvn")
 
 [node name="Camera2D" type="Camera2D" parent="."]

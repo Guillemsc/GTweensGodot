@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using System;
+using Godot;
 using GTweens.Delegates;
 using GTweens.TweenBehaviours;
 using GTweens.Tweeners;
@@ -52,5 +53,17 @@ public static class GTweenGodotExtensions
         InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
         tweenBehaviour.Add(new GodotColorTweener(currValueGetter, setter, finalValueGetter, duration, validation));
         return new GTween(tweenBehaviour);
+    }
+
+    public static GTween SetEasing(this GTween gTween, Curve curve)
+    {
+        if (curve == null)
+        {
+            throw new ArgumentNullException(
+                $"Tried to {nameof(SetEasing)} on a {nameof(GTween)} with a null {nameof(Curve)}"
+            );
+        }
+
+        return gTween.SetEasing(curve.ToEasingDelegate());
     }
 }
