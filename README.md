@@ -28,9 +28,9 @@ public partial class TweenExample : Node
 - Godot Integration: Seamlessly integrates with the Godot engine, making it a natural extension of your Godot projects.
 
 ## 📦 Installation
-1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest)
-2.  Unpack the `GTweensGodot` folder into the Godot project.
-3.  Go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
+2. Unpack the `GTweensGodot` folder into the Godot project.
+3. Go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ## 📚 Getting started
 ```csharp
