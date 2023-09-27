@@ -19,8 +19,32 @@ public partial class TweenExample : Node
     }
 }
 ```
+
 - Sequencing: Easily chain multiple tweens together to create complex sequences of animations.
-- Multiple Tween Types: GTweensGodot supports property, method, and callback tweens, giving you full control over how you animate your game elements.
+```csharp
+public partial class PlayTweenSequenceExample : Node
+{
+    [Export] public Node2D Target;
+	
+    public override void _Ready()
+    {
+        GTween tween = GTweenSequenceBuilder.New()
+            .Append(Target.TweenPositionX(100, 0.5f))
+            .Join(Target.TweenScale(new Vector2(2, 2), 1))
+            .Append(Target.TweenPositionY(100, 1))
+            .AppendTime(0.5f)
+            .Append(Target.TweenPositionX(0, 1))
+            .Append(Target.TweenPositionY(0, 1))
+            .AppendCallback(() => GD.Print("I'm finished!"))
+            .Build();
+        
+        tween.SetEasing(Easing.InOutCubic);
+        tween.Play();
+    }
+}
+```
+
+- Multiple Tween Types: GTweensGodot supports value and callback tweens, giving you full control over how you animate your game elements.
 - Versatile Easing Functions: Choose from a variety of easing functions to achieve different animation effects, including linear, ease-in, ease-out, and custom curves.
 - Looping: Create looping animations with a single line of code, and control loop count and behavior.
 - Delay and Duration: Specify delays and duration for each tween, allowing precise timing of your animations.
