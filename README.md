@@ -29,12 +29,12 @@ public partial class PlayTweenSequenceExample : Node
     public override void _Ready()
     {
         GTween tween = GTweenSequenceBuilder.New()
-            .Append(Target.TweenPositionX(100, 0.5f))
-            .Join(Target.TweenScale(new Vector2(2, 2), 1))
-            .Append(Target.TweenPositionY(100, 1))
+            .Append(Target.TweenPositionX(100f, 0.5f))
+            	.Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
+            .Append(Target.TweenPositionY(100f, 1f))
             .AppendTime(0.5f)
-            .Append(Target.TweenPositionX(0, 1))
-            .Append(Target.TweenPositionY(0, 1))
+            .Append(Target.TweenPositionX(0f, 1f))
+            .Append(Target.TweenPositionY(0f, 1f))
             .AppendCallback(() => GD.Print("I'm finished!"))
             .Build();
         
