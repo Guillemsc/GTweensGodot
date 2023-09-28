@@ -36,11 +36,9 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
             GTween tween = GTweenSequenceBuilder.New()
                 .Append(Target.TweenPositionX(100f, 0.5f))
                     .Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
-                .Append(Target.TweenPositionY(100f, 1f))
                 .AppendTime(0.5f)
                     .JoinCallback(() => GD.Print("I'm waiting some time!"))
                 .Append(Target.TweenPositionX(0f, 1f))
-                .Append(Target.TweenPositionY(0f, 1f))
                 .AppendCallback(() => GD.Print("I'm finished!"))
                 .Build();
 
