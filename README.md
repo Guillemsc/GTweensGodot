@@ -2,7 +2,7 @@
 
 **Still in development, not ready to use.**
 
-GTweensGodot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
+GTweens-Godot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
 Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
@@ -11,7 +11,7 @@ This means that you can create animations and interpolate values without the nee
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
 ## 🤜 Features
-- **Simple API**: GTweensGodot provides an intuitive and easy-to-use API with C# extension methods.
+- **Simple API**: GTweens-Godot provides an intuitive and easy-to-use API with C# extension methods.
 	```csharp
 	public partial class TweenExample : Node
 	{
@@ -39,6 +39,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 	            	.Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
 	            .Append(Target.TweenPositionY(100f, 1f))
 	            .AppendTime(0.5f)
+ 			.JoinCallback(() => GD.Print("I'm waiting some time!"))
 	            .Append(Target.TweenPositionX(0f, 1f))
 	            .Append(Target.TweenPositionY(0f, 1f))
 	            .AppendCallback(() => GD.Print("I'm finished!"))
