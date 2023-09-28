@@ -126,12 +126,14 @@ GTweenExtensions.Tween(getter, setter, to, duration)
 // For Godot specific values (Vector2, Vector3, etc)
 GTweenGodotExtensions.Tween(getter, setter, to, duration)
 ```
-- Getter: a delegate that returns the value of the property to tween. Can be written as a lambda like this: () => myValue
-where myValue is the name of the property to tween.
-- Setter: a delegate that sets the value of the property to tween. Can be written as a lambda like this: x => myValue = x
-where myValue is the name of the property to tween.
-- To: the end value to reach.
-- Duration: the duration of the tween in seconds.
+- **Getter**: a delegate that returns the value of the property to tween. Can be written as a lambda like this: `() => myValue`
+where `myValue` is the name of the property to tween.
+- **Setter**: a delegate that sets the value of the property to tween. Can be written as a lambda like this: `x => myValue = x`
+where `myValue` is the name of the property to tween.
+- **To**: the end value to reach.
+- **Duration**: the duration of the tween in seconds.
+- **Validation** (optional): a delegate that every time the tween updates, checks if it should be running. Can be written as a lambda like this: `() => shouldKeepRunning`
+where `shouldKeepRunning` is a boolean.
   
 ```csharp
 // For default C# values
