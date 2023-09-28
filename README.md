@@ -111,7 +111,7 @@ Prefixes are important to use the most out of IntelliSense, so try to remember t
 	node2D.TweenPositionX(100f, 1f);
 	﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
 	```
-- **Set**: prefix for all settings that can be chained to a tween (except for From, since it's applied as a setting but is not really a setting).
+- **Set**: prefix for all settings that can be chained to a tween.
 	```csharp
 	myTween.SetLoops(4).SetEasing(Easing.InOutCubic);
 	```
@@ -123,7 +123,11 @@ Prefixes are important to use the most out of IntelliSense, so try to remember t
 ### Generic tweening
 This is the most flexible way of tweening and allows you to tween almost any value.
 ```csharp
- GTweenExtensions.Tween(getter, setter, to, duration)
+// For default C# values (int, float, etc)
+GTweenExtensions.Tween(getter, setter, to, duration)
+
+// For Godot specific values (Vector2, Vector3, etc)
+GTweenGodotExtensions.Tween(getter, setter, to, duration)
 ```
 - Getter: a delegate that returns the value of the property to tween. Can be written as a lambda like this: () => myValue
 where myValue is the name of the property to tween.
@@ -131,6 +135,24 @@ where myValue is the name of the property to tween.
 where myValue is the name of the property to tween.
 - To: the end value to reach.
 - Duration: the duration of the tween in seconds.
+  
+```csharp
+// For defaulct C# values
+GTween tween = GTweenExtensions.Tween(
+    () => Target.SomeFloat, // Getter
+    x => Target.SomeFloat = x, // Setter
+    100f, // To
+    1 // Duration
+);
+
+// For Godot specific values
+GTween tween = GTweenGodotExtensions.Tween(
+    () => Target.Position, // Getter
+    x => Target.Position = x, // Setter
+    new Vector2(100f, 100f), // To
+    1 // Duration
+);
+```
 
 ### Shortcut tweening
 GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can start a tween directly from a reference to these objects, like:
