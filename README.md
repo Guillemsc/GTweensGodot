@@ -1,9 +1,14 @@
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
+**Still in development, not ready to use.**
+
 GTweensGodot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
+
+Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
+This means that you can create animations and interpolate values without the need for a hierarchical node structure.
 
 ## 🤜 Features
 - **Simple API**: GTweensGodot provides an intuitive and easy-to-use API with C# extension methods.
