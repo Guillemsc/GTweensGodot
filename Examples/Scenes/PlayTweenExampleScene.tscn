@@ -5,9 +5,8 @@
 
 [node name="PlayTweenExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("NodeToMove")]
+[node name="Example" type="Node2D" parent="."]
 script = ExtResource("1_7ph6d")
-NodeToMove = NodePath("../Node2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 

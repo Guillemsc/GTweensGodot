@@ -8,10 +8,10 @@ public static class Sprite2DExtensions
 {
     public static GTween TweenOffset(this Sprite2D target, Vector2 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.Offset,
             current => target.Offset = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -22,7 +22,7 @@ public static class Sprite2DExtensions
         return GTweenExtensions.Tween(
             () => target.Offset.X,
             current => target.Offset = new Vector2(current, target.Offset.Y), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -33,7 +33,7 @@ public static class Sprite2DExtensions
         return GTweenExtensions.Tween(
             () => target.Offset.Y,
             current => target.Offset = new Vector2(target.Offset.X, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );

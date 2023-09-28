@@ -22,7 +22,6 @@ public partial class ControlExample : Node2D
             .Append(Target.TweenPositionX(0, tweenDuration))
             .Append(Target.TweenPositionY(0, tweenDuration))
             .Append(Target.TweenRotation(180 * MathExtensions.Deg2Rad, tweenDuration))
-            .Append(Target.TweenRotationDegrees(0, tweenDuration))
             .Append(Target.TweenScale(new Vector2(5, 5), tweenDuration))
             .Append(Target.TweenScaleX(1, tweenDuration))
             .Append(Target.TweenScaleY(1, tweenDuration))

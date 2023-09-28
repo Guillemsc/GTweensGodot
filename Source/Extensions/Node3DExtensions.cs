@@ -8,10 +8,10 @@ public static class Node3DExtensions
 {
     public static GTween TweenGlobalPosition(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.GlobalPosition,
             current => target.GlobalPosition = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -22,7 +22,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalPosition.X,
             current => target.GlobalPosition = new Vector3(current, target.GlobalPosition.Y, target.GlobalPosition.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -33,7 +33,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalPosition.Y,
             current => target.GlobalPosition = new Vector3(target.GlobalPosition.X, current, target.GlobalPosition.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -44,7 +44,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalPosition.Z,
             current => target.GlobalPosition = new Vector3(target.GlobalPosition.X, target.GlobalPosition.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -52,10 +52,10 @@ public static class Node3DExtensions
     
     public static GTween TweenPosition(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.Position,
             current => target.Position = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -66,7 +66,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Position.X,
             current => target.Position = new Vector3(current, target.Position.Y, target.Position.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -77,7 +77,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Position.Y,
             current => target.Position = new Vector3(target.Position.X, current, target.Position.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -88,7 +88,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Position.Z,
             current => target.Position = new Vector3(target.Position.X, target.Position.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -96,10 +96,10 @@ public static class Node3DExtensions
     
     public static GTween TweenGlobalRotation(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.GlobalRotation,
             current => target.GlobalRotation = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -110,7 +110,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.X,
             current => target.GlobalRotation = new Vector3(current, target.GlobalRotation.Y, target.GlobalRotation.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -121,7 +121,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.Y,
             current => target.GlobalRotation = new Vector3(target.GlobalRotation.X, current, target.GlobalRotation.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -132,7 +132,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.Z,
             current => target.GlobalRotation = new Vector3(target.GlobalRotation.X, target.GlobalRotation.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -140,10 +140,10 @@ public static class Node3DExtensions
     
     public static GTween TweenRotation(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.Rotation,
             current => target.Rotation = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -154,7 +154,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Rotation.X,
             current => target.Rotation = new Vector3(current, target.Rotation.Y, target.Rotation.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -165,7 +165,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Rotation.Y,
             current => target.Rotation = new Vector3(target.Rotation.X, current, target.Rotation.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -176,7 +176,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Rotation.Z,
             current => target.Rotation = new Vector3(target.Rotation.X, target.Rotation.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -184,10 +184,10 @@ public static class Node3DExtensions
     
     public static GTween TweenGlobalRotationDegrees(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.GlobalRotationDegrees,
             current => target.GlobalRotationDegrees = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -198,7 +198,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotationDegrees.X,
             current => target.GlobalRotationDegrees = new Vector3(current, target.GlobalRotationDegrees.Y, target.GlobalRotationDegrees.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -209,7 +209,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotationDegrees.Y,
             current => target.GlobalRotationDegrees = new Vector3(target.GlobalRotationDegrees.X, current, target.GlobalRotationDegrees.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -220,7 +220,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.GlobalRotationDegrees.Z,
             current => target.GlobalRotationDegrees = new Vector3(target.GlobalRotationDegrees.X, target.GlobalRotationDegrees.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -228,10 +228,10 @@ public static class Node3DExtensions
     
     public static GTween TweenRotationDegrees(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.RotationDegrees,
             current => target.GlobalRotationDegrees = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -242,7 +242,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.RotationDegrees.X,
             current => target.RotationDegrees = new Vector3(current, target.RotationDegrees.Y, target.RotationDegrees.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -253,7 +253,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.RotationDegrees.Y,
             current => target.RotationDegrees = new Vector3(target.RotationDegrees.X, current, target.RotationDegrees.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -264,7 +264,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.RotationDegrees.Z,
             current => target.RotationDegrees = new Vector3(target.RotationDegrees.X, target.RotationDegrees.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -272,10 +272,10 @@ public static class Node3DExtensions
     
     public static GTween TweenScale(this Node3D target, Vector3 to, float duration)
     {
-        return GTweenGodotExtensions.To(
+        return GTweenGodotExtensions.Tween(
             () => target.Scale,
             current => target.Scale = current, 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -286,7 +286,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Scale.X,
             current => target.Scale = new Vector3(current, target.Scale.Y, target.Scale.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -297,7 +297,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Scale.Y,
             current => target.Scale = new Vector3(target.Scale.X, current, target.Scale.Z), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
@@ -308,7 +308,7 @@ public static class Node3DExtensions
         return GTweenExtensions.Tween(
             () => target.Scale.Z,
             current => target.Scale = new Vector3(target.Scale.X, target.Scale.Y, current), 
-            () => to, 
+            to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );

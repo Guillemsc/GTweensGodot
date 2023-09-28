@@ -8,16 +8,16 @@ namespace GTweensGodot.Tweeners;
 public sealed class GodotColorTweener : Tweener<Color>
 {
     public GodotColorTweener(
-        Getter currentValueGetter,
+        Getter getter,
         Setter setter,
-        Getter finalValueGetter,
+        Color to,
         float duration,
         ValidationDelegates.Validation validation
     )
         : base(
-            currentValueGetter,
+            getter,
             setter,
-            finalValueGetter,
+            to,
             duration,
             GodotColorInterpolator.Instance, 
             validation

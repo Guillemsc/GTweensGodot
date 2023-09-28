@@ -1,6 +1,7 @@
 ﻿using System;
 using Godot;
 using GTweens.Delegates;
+using GTweens.Extensions;
 using GTweens.TweenBehaviours;
 using GTweens.Tweeners;
 using GTweens.Tweens;
@@ -16,44 +17,66 @@ public static class GTweenGodotExtensions
         GodotGTweensContextNode.Context.Play(tween);
     }
     
-    public static GTween To(
-        Tweener<Vector2>.Getter currValueGetter, 
+    public static GTween Tween(
+        Tweener<Vector2>.Getter getter, 
         Tweener<Vector2>.Setter setter,
-        Tweener<Vector2>.Getter finalValueGetter, 
+        Vector2 to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
     {
         InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
-        tweenBehaviour.Add(new GodotVector2Tweener(currValueGetter, setter, finalValueGetter, duration, validation));
+        tweenBehaviour.Add(new GodotVector2Tweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
     
-    public static GTween To(
-        Tweener<Vector3>.Getter currValueGetter, 
+    public static GTween Tween(
+        Tweener<Vector2>.Getter getter, 
+        Tweener<Vector2>.Setter setter,
+        Vector2 to, 
+        float duration
+    ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
+    
+    public static GTween Tween(
+        Tweener<Vector3>.Getter getter, 
         Tweener<Vector3>.Setter setter,
-        Tweener<Vector3>.Getter finalValueGetter, 
+        Vector3 to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
     {
         InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
-        tweenBehaviour.Add(new GodotVector3Tweener(currValueGetter, setter, finalValueGetter, duration, validation));
+        tweenBehaviour.Add(new GodotVector3Tweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
     
-    public static GTween To(
-        Tweener<Color>.Getter currValueGetter, 
+    public static GTween Tween(
+        Tweener<Vector3>.Getter getter, 
+        Tweener<Vector3>.Setter setter,
+        Vector3 to, 
+        float duration
+    ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
+    
+    public static GTween Tween(
+        Tweener<Color>.Getter getter, 
         Tweener<Color>.Setter setter,
-        Tweener<Color>.Getter finalValueGetter, 
+        Color to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
     {
         InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
-        tweenBehaviour.Add(new GodotColorTweener(currValueGetter, setter, finalValueGetter, duration, validation));
+        tweenBehaviour.Add(new GodotColorTweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
+    
+    public static GTween Tween(
+        Tweener<Color>.Getter getter, 
+        Tweener<Color>.Setter setter,
+        Color to, 
+        float duration
+    ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
+    
 
     public static GTween SetEasing(this GTween gTween, Curve curve)
     {
