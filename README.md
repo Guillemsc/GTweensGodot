@@ -6,7 +6,6 @@ GTweens-Godot is a lightweight and versatile tweening library for the Godot game
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
 Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
-This means that you can create animations and interpolate values without the need for a hierarchical node structure.
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
@@ -37,11 +36,9 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
             GTween tween = GTweenSequenceBuilder.New()
                 .Append(Target.TweenPositionX(100f, 0.5f))
                     .Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
-                .Append(Target.TweenPositionY(100f, 1f))
                 .AppendTime(0.5f)
                     .JoinCallback(() => GD.Print("I'm waiting some time!"))
                 .Append(Target.TweenPositionX(0f, 1f))
-                .Append(Target.TweenPositionY(0f, 1f))
                 .AppendCallback(() => GD.Print("I'm finished!"))
                 .Build();
 
@@ -129,12 +126,14 @@ GTweenExtensions.Tween(getter, setter, to, duration)
 // For Godot specific values (Vector2, Vector3, etc)
 GTweenGodotExtensions.Tween(getter, setter, to, duration)
 ```
-- Getter: a delegate that returns the value of the property to tween. Can be written as a lambda like this: () => myValue
-where myValue is the name of the property to tween.
-- Setter: a delegate that sets the value of the property to tween. Can be written as a lambda like this: x => myValue = x
-where myValue is the name of the property to tween.
-- To: the end value to reach.
-- Duration: the duration of the tween in seconds.
+- **Getter**: a delegate that returns the value of the property to tween. Can be written as a lambda like this: `() => myValue`
+where `myValue` is the name of the property to tween.
+- **Setter**: a delegate that sets the value of the property to tween. Can be written as a lambda like this: `x => myValue = x`
+where `myValue` is the name of the property to tween.
+- **To**: the end value to reach.
+- **Duration**: the duration of the tween in seconds.
+- **Validation** (optional): a delegate that every time the tween updates, checks if it should be running. Can be written as a lambda like this: `() => shouldKeepRunning`
+where `shouldKeepRunning` is a boolean.
   
 ```csharp
 // For default C# values
