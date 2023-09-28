@@ -1,88 +1,94 @@
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
-GTweensGodot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
+**Still in development, not ready to use.**
+
+GTweens-Godot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
+
+Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
+This means that you can create animations and interpolate values without the need for a hierarchical node structure.
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
 ## 🤜 Features
-- **Simple API**: GTweensGodot provides an intuitive and easy-to-use API with C# extension methods.
-	```csharp
-	public partial class TweenExample : Node
-	{
-	    [Export] public Node2D Target;
+- **Simple API**: GTweens-Godot provides an intuitive and easy-to-use API with C# extension methods.
+    ```csharp
+    public partial class TweenExample : Node
+    {
+        [Export] public Node2D Target;
 		
-	    public override void _Ready()
-	    {
-	        Target.TweenPosition(new Vector2(100, 0), 3)
-	            .SetEasing(Easing.InOutCubic)
-	            .Play();
-	    }
-	}
-	```
+        public override void _Ready()
+        {
+            Target.TweenPosition(new Vector2(100, 0), 3)
+                .SetEasing(Easing.InOutCubic)
+                .Play();
+        }
+    }
+    ```
 
 - **Sequencing**: Easily chain multiple tweens together to create complex sequences of animations.
-	```csharp
-	public partial class PlayTweenSequenceExample : Node
-	{
-	    [Export] public Node2D Target;
+    ```csharp
+    public partial class PlayTweenSequenceExample : Node
+    {
+        [Export] public Node2D Target;
 		
-	    public override void _Ready()
-	    {
-	        GTween tween = GTweenSequenceBuilder.New()
-	            .Append(Target.TweenPositionX(100f, 0.5f))
-	            	.Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
-	            .Append(Target.TweenPositionY(100f, 1f))
-	            .AppendTime(0.5f)
-	            .Append(Target.TweenPositionX(0f, 1f))
-	            .Append(Target.TweenPositionY(0f, 1f))
-	            .AppendCallback(() => GD.Print("I'm finished!"))
-	            .Build();
-	        
-	        tween.SetEasing(Easing.InOutCubic);
-	        tween.Play();
-	    }
-	}
-	```
+        public override void _Ready()
+        {
+            GTween tween = GTweenSequenceBuilder.New()
+                .Append(Target.TweenPositionX(100f, 0.5f))
+                    .Join(Target.TweenScale(new Vector2(2f, 2f), 1f))
+                .Append(Target.TweenPositionY(100f, 1f))
+                .AppendTime(0.5f)
+                    .JoinCallback(() => GD.Print("I'm waiting some time!"))
+                .Append(Target.TweenPositionX(0f, 1f))
+                .Append(Target.TweenPositionY(0f, 1f))
+                .AppendCallback(() => GD.Print("I'm finished!"))
+                .Build();
+
+            tween.SetEasing(Easing.InOutCubic);
+            tween.Play();
+        }
+    }
+    ```
 
 - **Versatile Easing Functions**: Choose from a variety of easing functions to achieve different animation effects, including linear, ease-in, ease-out, and custom curves.
-	```csharp
-	public partial class EasingExample : Node
-	{
-	    [Export] public Node2D Target1;
-	    [Export] public Node2D Target2;
+    ```csharp
+    public partial class EasingExample : Node
+    {
+        [Export] public Node2D Target1;
+        [Export] public Node2D Target2;
 	
-	    [Export] public Easing Easing1;
-	    [Export] public Curve Easing2;
+        [Export] public Easing Easing1;
+        [Export] public Curve Easing2;
 		
-	    public override void _Ready()
-	    {
-	        GTween tween1 = Target1.TweenPositionX(100, 3);
-	        tween1.SetEasing(Easing1);
-	        tween1.Play();
+        public override void _Ready()
+        {
+            GTween tween1 = Target1.TweenPositionX(100, 3);
+            tween1.SetEasing(Easing1);
+            tween1.Play();
 	        
-	        GTween tween2 = Target2.TweenPositionX(100, 3);
-	        tween2.SetEasing(Easing2);
-	        tween2.Play();
-	    }
-	}
-	```
+            GTween tween2 = Target2.TweenPositionX(100, 3);
+            tween2.SetEasing(Easing2);
+            tween2.Play();
+        }
+    }
+    ```
   
 - **Looping**: Create looping animations with a single line of code, and control loop count and behavior.
-	```csharp
-	public partial class LoopingTweenExample : Node
-	{
-	    [Export] public Node2D Target;
-	    [Export] public int Loops;
+    ```csharp
+    public partial class LoopingTweenExample : Node
+    {
+        [Export] public Node2D Target;
+        [Export] public int Loops;
 		
-	    public override void _Ready()
-	    {
-	        GTween tween = Target.TweenPositionX(150, 1);
-	        tween.SetLoops(Loops);
-	        tween.Play();
-	    }
-	}
-	```
+        public override void _Ready()
+        {
+             GTween tween = Target.TweenPositionX(150, 1);
+             tween.SetLoops(Loops);
+             tween.Play();
+        }
+    }
+    ```
   
 - **Delay and Duration**: Specify delays and duration for each tween, allowing precise timing of your animations.
 - **Callback Events**: Attach callbacks to tweens for event handling at various points in the animation timeline.
@@ -101,23 +107,27 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 ### Prefixes
 Prefixes are important to use the most out of IntelliSense, so try to remember these:
 - **Tween**: prefix for all tween shortcuts (operations that can be started directly from a known object, like a Node2D or a Control).
-	```csharp
-	node2D.TweenPositionX(100f, 1f);
-	﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
-	```
-- **Set**: prefix for all settings that can be chained to a tween (except for From, since it's applied as a setting but is not really a setting).
-	```csharp
-	myTween.SetLoops(4).SetEasing(Easing.InOutCubic);
-	```
+    ```csharp
+    node2D.TweenPositionX(100f, 1f);
+    control.TweenSizeY(200f, 2f);
+    ```
+- **Set**: prefix for all settings that can be chained to a tween.
+    ```csharp
+    myTween.SetLoops(4).SetEasing(Easing.InOutCubic);
+    ```
 - **On**: prefix for all callbacks that can be chained to a tween.
-	```csharp
-	myTween.OnStart(myStartFunction).OnComplete(myCompleteFunction);
-	```
+    ```csharp
+    myTween.OnStart(myStartFunction).OnComplete(myCompleteFunction);
+    ```
  
 ### Generic tweening
 This is the most flexible way of tweening and allows you to tween almost any value.
 ```csharp
- GTweenExtensions.Tween(getter, setter, to, duration)
+// For default C# values (int, float, etc)
+GTweenExtensions.Tween(getter, setter, to, duration)
+
+// For Godot specific values (Vector2, Vector3, etc)
+GTweenGodotExtensions.Tween(getter, setter, to, duration)
 ```
 - Getter: a delegate that returns the value of the property to tween. Can be written as a lambda like this: () => myValue
 where myValue is the name of the property to tween.
@@ -125,6 +135,24 @@ where myValue is the name of the property to tween.
 where myValue is the name of the property to tween.
 - To: the end value to reach.
 - Duration: the duration of the tween in seconds.
+  
+```csharp
+// For default C# values
+GTween tween = GTweenExtensions.Tween(
+    () => Target.SomeFloat, // Getter
+    x => Target.SomeFloat = x, // Setter
+    100f, // To
+    1 // Duration
+);
+
+// For Godot specific values
+GTween tween = GTweenGodotExtensions.Tween(
+    () => Target.Position, // Getter
+    x => Target.Position = x, // Setter
+    new Vector2(100f, 100f), // To
+    1 // Duration
+);
+```
 
 ### Shortcut tweening
 GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can start a tween directly from a reference to these objects, like:
@@ -143,13 +171,13 @@ To create sequences, you need to use the helper `GTweenSequenceBuilder`.
 - Finally you call `Build()` to get the generated sequence Tween.
 ```csharp
  GTween tween = GTweenSequenceBuilder.New()
-	.Append(Target.TweenPositionX(100, 0.5f))
-		.Join(Target.TweenScale(new Vector2(2, 2), 1))
-	.Append(Target.TweenPositionY(100, 1))
-	.AppendTime(0.5f)
-	.Append(Target.TweenPositionX(0, 1))
-	.AppendCallback(() => GD.Print("I'm finished!"))
-	.Build();
+    .Append(Target.TweenPositionX(100, 0.5f))
+        .Join(Target.TweenScale(new Vector2(2, 2), 1))
+    .Append(Target.TweenPositionY(100, 1))
+    .AppendTime(0.5f)
+    .Append(Target.TweenPositionX(0, 1))
+    .AppendCallback(() => GD.Print("I'm finished!"))
+    .Build();
         
 tween.SetEasing(Easing.InOutCubic);
 tween.Play();
