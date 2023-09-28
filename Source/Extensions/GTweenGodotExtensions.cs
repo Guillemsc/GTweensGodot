@@ -38,6 +38,26 @@ public static class GTweenGodotExtensions
     ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
     
     public static GTween Tween(
+        Tweener<Vector2I>.Getter getter, 
+        Tweener<Vector2I>.Setter setter,
+        Vector2I to, 
+        float duration, 
+        ValidationDelegates.Validation validation
+    )
+    {
+        InterpolationTweenBehaviour tweenBehaviour = new InterpolationTweenBehaviour();
+        tweenBehaviour.Add(new GodotVector2ITweener(getter, setter, to, duration, validation));
+        return new GTween(tweenBehaviour);
+    }
+    
+    public static GTween Tween(
+        Tweener<Vector2I>.Getter getter, 
+        Tweener<Vector2I>.Setter setter,
+        Vector2I to, 
+        float duration
+    ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
+    
+    public static GTween Tween(
         Tweener<Vector3>.Getter getter, 
         Tweener<Vector3>.Setter setter,
         Vector3 to, 

@@ -16,3 +16,4 @@ Target = NodePath("../CanvasModulate")
 texture = ExtResource("2_dtliu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
