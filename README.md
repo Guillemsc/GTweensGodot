@@ -87,9 +87,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     }
     ```
   
-- **Delay and Duration**: Specify delays and duration for each tween, allowing precise timing of your animations.
-- **Callback Events**: Attach callbacks to tweens for event handling at various points in the animation timeline.
-- **Godot Integration**: Seamlessly integrates with the Godot engine, making it a natural extension of your Godot projects.
+- **Delays**: Specify delays, allowing precise timing of your animations.
+- **Callbacks**: Attach callbacks to tweens for event handling at various points in the animation timeline.
 
 ## 📦 Installation
 1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
