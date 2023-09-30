@@ -12,12 +12,18 @@ jobs:
       with:
         repository: Guillemsc/GTweens  # Replace with the repository you want to clone
         ref: main  # Replace with the branch or tag you want to checkout
+        path: GTweens
 
     - name: Create Folder
       run: mkdir GTWeensGodot
     
     - name: Create Folder
       run: mkdir GTWeensGodot/GTWeens
+
+    - name: Log directory contents (Linux/macOS)
+      run: |
+        echo "Directory contents:"
+        tree ./ 
     
     - name: Move Repository Contents
       run: mv GTweens/* GTWeensGodot/GTWeens/
