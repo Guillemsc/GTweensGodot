@@ -30,6 +30,10 @@ jobs:
       run: |
         git config --global user.name "Guillem"
         git config --global user.email "gsunyercaldu@gmail.com"
+        git remote set-url origin https://<Guillemsc>:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
+        git push origin main
+      env:
+        PAT: ${{ secrets.TOKEN }}
 
     - name: Create Folder
       run: mkdir ReleaseGTWeensGodot
