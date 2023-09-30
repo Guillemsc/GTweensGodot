@@ -1,9 +1,6 @@
 name: Download and Create Folder
 
-on:
-  push:
-    tags:
-      - '*'
+on: [push]
 
 jobs:
   download_and_create:
