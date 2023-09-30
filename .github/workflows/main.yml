@@ -21,7 +21,7 @@ jobs:
     
     - name: Move Repository Contents
       run: mv * GTWeensGodot/GTWeens/
-      working-directory: ./GTweens  # Replace 'repo' with the name of the cloned repository's folder
+      working-directory: ././GTweens  # Replace 'repo' with the name of the cloned repository's folder
     
     - name: Create Release
       id: create_release
