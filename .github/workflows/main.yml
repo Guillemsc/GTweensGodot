@@ -1,6 +1,9 @@
 name: Download and Create Folder
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   download_and_create:
@@ -29,19 +32,19 @@ jobs:
       run: mv GTweens/* GTWeensGodot/GTWeens/
       working-directory: ./
 
-    - name: Debug GitHub API Response
-      run: |
-        curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/GTWeensGodot/GTweensGodot/releases
-    
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
         files: |
           GTWeensGodot/**/*
+      env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: "dum"
+
+    - name: Get Release URL
+      id: release_url
+      run: |
+        echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
         
     # Add any other steps you need here
