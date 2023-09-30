@@ -30,8 +30,9 @@ jobs:
       run: |
         git config --global user.name "Guillem"
         git config --global user.email "gsunyercaldu@gmail.com"
-        git remote set-url origin https://Guillemsc:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
+        git remote set-url origin https://guillemsc:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
         git push origin main
+        https://guillemsc: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@github.com/<REPO_PATH>.git
       env:
         PAT: ${{ secrets.TOKEN }}
 
