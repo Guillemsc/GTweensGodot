@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl7bvtm2rs7nq"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/BaseMaterial3DExample.cs" id="1_d0alp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
+transparency = 1
+albedo_color = Color(0.333333, 0.486275, 1, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="Environment" id="Environment_4gk0i"]
+background_mode = 1
+background_color = Color(0.156863, 0.156863, 0.156863, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_light_energy = 2.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
+
+[node name="BaseMaterial3DExampleScene" type="Node3D"]
+
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
+script = ExtResource("1_d0alp")
+Target = NodePath("../CSGBox3D")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+
+[node name="Plane" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.622862, 0)
+gi_mode = 2
+size = Vector3(3.44605, 0.192549, 3.69502)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.917214, -1.90393)
+gi_mode = 2
+size = Vector3(3.44605, 3.27377, 0.182729)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.835807, -0.197646, 0.512213, 0, 0.932954, 0.359997, -0.549023, -0.300888, 0.779769, 3.619, 2.894, 5.146)
+fov = 60.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4gk0i")
+camera_attributes = SubResource("CameraAttributesPractical_13f0n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.6333, 0.773907, 0, -0.773907, 0.6333, 0, 0, 0)
+shadow_enabled = true

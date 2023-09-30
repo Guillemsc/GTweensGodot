@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcf6gx881hoxt"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Node2DExample.cs" id="1_5fvlb"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_nsgbt"]
+
+[node name="Node2DExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("NodeToMove")]
+rotation = 6.28319
+script = ExtResource("1_5fvlb")
+NodeToMove = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_nsgbt")
+
+[node name="Camera2D" type="Camera2D" parent="."]

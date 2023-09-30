@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv6vwc6kumlqr"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/ControlExample.cs" id="1_ja222"]
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/ControlExample.cs" id="1_4fa4a"]
 
-[node name="ControlExample" type="Node2D"]
+[node name="ControlExampleScene" type="Node2D"]
 
 [node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
-script = ExtResource("1_ja222")
+script = ExtResource("1_4fa4a")
 Target = NodePath("../CanvasLayer/Control/ColorRect")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -34,3 +34,4 @@ grow_vertical = 2
 pivot_offset = Vector2(50, 50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

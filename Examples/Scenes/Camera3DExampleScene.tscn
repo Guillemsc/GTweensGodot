@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://donhgqa7ej726"]
+[gd_scene load_steps=6 format=3 uid="uid://cyvnvwpwp5vxr"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Node3DExample.cs" id="1_uqpir"]
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Camera3DExample.cs" id="1_fopif"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
+transparency = 1
 albedo_color = Color(0.333333, 0.486275, 1, 1)
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
 albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
@@ -19,11 +21,11 @@ fog_light_energy = 2.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
 
-[node name="Node3DExample" type="Node3D"]
+[node name="Camera3DExampleScene" type="Node3D"]
 
-[node name="Example" type="Node" parent="." node_paths=PackedStringArray("NodeToMove")]
-script = ExtResource("1_uqpir")
-NodeToMove = NodePath("../CSGBox3D")
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
+script = ExtResource("1_fopif")
+Target = NodePath("../Camera3D")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_6j2xr")

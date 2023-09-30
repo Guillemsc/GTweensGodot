@@ -2,7 +2,7 @@
 using GTweens.Tweens;
 using GTweensGodot.Extensions;
 
-namespace GTweensGodot.Examples.Scripts;
+namespace GTweensGodot.Examples;
 
 public partial class GenericTweeningExample : Node
 {

@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmhhu2i1krsn2"]
+[gd_scene load_steps=4 format=3 uid="uid://dmhhu2i1krsn2"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/LoopingTweenExample.cs" id="1_lemb7"]
 [ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_6jkt6"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6j7qb"]
+
 [node name="LoopingTweenExampleScene" type="Node2D"]
 
 [node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
+material = SubResource("ShaderMaterial_6j7qb")
 script = ExtResource("1_lemb7")
 Target = NodePath("../Node2D")
 Loops = 5

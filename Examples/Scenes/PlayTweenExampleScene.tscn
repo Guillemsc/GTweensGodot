@@ -5,8 +5,9 @@
 
 [node name="PlayTweenExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="."]
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("1_7ph6d")
+Target = NodePath("../Node2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 
