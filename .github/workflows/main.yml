@@ -20,8 +20,8 @@ jobs:
       run: mkdir GTWeensGodot/GTWeens
     
     - name: Move Repository Contents
-      run: mv * GTWeensGodot/GTWeens/
-      working-directory: ././GTweens  # Replace 'repo' with the name of the cloned repository's folder
+      run: mv GTweens/* GTWeensGodot/GTWeens/
+      working-directory: ./GTweens
     
     - name: Create Release
       id: create_release
