@@ -166,6 +166,8 @@ Sequences can be contained inside other sequences without any limit to the depth
 To create sequences, you need to use the helper `GTweenSequenceBuilder`.
 - First you call to start creating a new sequence `New()`.
 - Next you `Append()` or `Join()` any tweens to the sequence.
+	- **Append**: Adds the given tween to the end of the Sequence. This tween will play after all the previous tweens have finished.
+	- **Join**: Inserts the given tween at the same time position of the last tween added to the Sequence. This tween will play at the same time as the previous tween.
 - Finally you call `Build()` to get the generated sequence Tween.
 ```csharp
  GTween tween = GTweenSequenceBuilder.New()
