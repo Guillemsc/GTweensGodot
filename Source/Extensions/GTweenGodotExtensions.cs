@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Godot;
 using GTweens.Delegates;
 using GTweens.Extensions;
@@ -12,11 +14,6 @@ namespace GTweensGodot.Extensions;
 
 public static class GTweenGodotExtensions
 {
-    public static void Play(this GTween tween)
-    {
-        GodotGTweensContextNode.Context.Play(tween);
-    }
-    
     public static GTween Tween(
         Tweener<Vector2>.Getter getter, 
         Tweener<Vector2>.Setter setter,
@@ -108,5 +105,19 @@ public static class GTweenGodotExtensions
         }
 
         return gTween.SetEasing(curve.ToEasingDelegate());
+    }
+    
+    public static void Play(this GTween tween)
+    {
+        GodotGTweensContextNode.Context.Play(tween);
+    }
+    
+    public static Task PlayAsync(this GTween gTween, CancellationToken cancellationToken)
+    {
+        gTween.Play();
+
+        cancellationToken.Register(gTween.Kill);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
     }
 }
