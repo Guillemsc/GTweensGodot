@@ -2,7 +2,7 @@
 
 **Still in development, not ready to use.**
 
-GTweens-Godot is a lightweight and versatile tweening library for the Godot game engine, written in C#. 
+GTweens-Godot is a lightweight and versatile tweening library for Godot with C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
 Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
@@ -87,9 +87,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     }
     ```
   
-- **Delay and Duration**: Specify delays and duration for each tween, allowing precise timing of your animations.
-- **Callback Events**: Attach callbacks to tweens for event handling at various points in the animation timeline.
-- **Godot Integration**: Seamlessly integrates with the Godot engine, making it a natural extension of your Godot projects.
+- **Delays**: Specify delays, allowing precise timing of your animations.
+- **Callbacks**: Attach callbacks to tweens for event handling at various points in the animation timeline.
 
 ## 📦 Installation
 1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
@@ -167,6 +166,8 @@ Sequences can be contained inside other sequences without any limit to the depth
 To create sequences, you need to use the helper `GTweenSequenceBuilder`.
 - First you call to start creating a new sequence `New()`.
 - Next you `Append()` or `Join()` any tweens to the sequence.
+	- **Append**: Adds the given tween to the end of the Sequence. This tween will play after all the previous tweens have finished.
+	- **Join**: Inserts the given tween at the same time position of the last tween added to the Sequence. This tween will play at the same time as the previous tween.
 - Finally you call `Build()` to get the generated sequence Tween.
 ```csharp
  GTween tween = GTweenSequenceBuilder.New()
