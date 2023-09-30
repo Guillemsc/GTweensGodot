@@ -30,9 +30,6 @@ jobs:
       run: |
         git config --global user.name "Guillem"
         git config --global user.email "gsunyercaldu@gmail.com"
-        git remote set-url origin https://guillemsc:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
-        git push origin main
-        https://guillemsc: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@github.com/<REPO_PATH>.git
       env:
         PAT: ${{ secrets.TOKEN }}
 
@@ -56,7 +53,8 @@ jobs:
       run: |
         TAG_NAME="${{ github.event.inputs.tag }}"
         TAG_MESSAGE="Version $TAG_NAME"
-        
+
+        git remote set-url origin https://guillemsc:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
         git tag -a $TAG_NAME -m "$TAG_MESSAGE"
         git push origin $TAG_NAME
 
