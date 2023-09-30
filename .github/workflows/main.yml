@@ -49,7 +49,6 @@ jobs:
       working-directory: ./
 
     - name: Create and Push Git Tag
-      working-directory: ./GTweensGodot
       run: |
         TAG_NAME="${{ github.event.inputs.tag }}"
         TAG_MESSAGE="Version $TAG_NAME"
