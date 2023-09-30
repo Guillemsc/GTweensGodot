@@ -34,7 +34,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          GTWeensGodot/*  # Replace with the pattern that matches the files you want to include in the release
+          GTWeensGodot/**/*
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: "dum"
         
