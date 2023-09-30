@@ -188,6 +188,9 @@ tween.Play();
 - **Kill**: kills the tween. This means that the tween will stop playing.
 - **Complete**: instantly reaches the final state of the tween, and stops playing.
 - **Reset**: sets the tween to its initial state, and stops playing.
+- **SetLoops**: sets the amount of times the tween should loop.
+- **SetEasing**: sets the easing used by the tween. If the tween is a sequence, the easing will be applied to all child tweens. Set to linear by default.
+- **SetTimeScale**: sets the time scale that will be used to tick the tween. Set to 1 by default.
 
 ### Tasks
 - **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
