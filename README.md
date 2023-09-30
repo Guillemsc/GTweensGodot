@@ -182,4 +182,15 @@ To create sequences, you need to use the helper `GTweenSequenceBuilder`.
 tween.SetEasing(Easing.InOutCubic);
 tween.Play();
 ```
+
+### Tween controls
+- **Play**: plays the tween.
+- **Kill**: kills the tween. This means that the tween will stop playing.
+- **Complete**: instantly reaches the final state of the tween, and stops playing.
+- **Reset**: sets the tween to its initial state, and stops playing.
+
+### Tasks
+- **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
+- **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
+
  
