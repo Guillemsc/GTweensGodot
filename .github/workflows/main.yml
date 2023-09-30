@@ -21,7 +21,7 @@ jobs:
     
     - name: Move Repository Contents
       run: mv GTweens/* GTWeensGodot/GTWeens/
-      working-directory: ./GTweens
+      working-directory: ./
     
     - name: Create Release
       id: create_release
