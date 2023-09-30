@@ -1,0 +1,34 @@
+name: Download and Create Folder
+
+on: [push]
+
+jobs:
+  download_and_create:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        repository: Guillemsc/GTweens  # Replace with the repository you want to clone
+        ref: main  # Replace with the branch or tag you want to checkout
+
+    - name: Create Folder
+      run: mkdir GTWeensGodot
+    
+    - name: Create Folder
+      run: mkdir GTWeensGodot/GTWeens
+    
+    - name: Move Repository Contents
+      run: mv * GTWeensGodot/GTWeens/
+      working-directory: ./GTweens  # Replace 'repo' with the name of the cloned repository's folder
+    
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          GTWeensGodot/*  # Replace with the pattern that matches the files you want to include in the release
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        
+    # Add any other steps you need here
