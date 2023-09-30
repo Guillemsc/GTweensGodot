@@ -1,6 +1,11 @@
 name: Download and Create Folder
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for the release'
+        required: true
 
 jobs:
   download_and_create:
@@ -13,6 +18,11 @@ jobs:
         repository: Guillemsc/GTweens  # Replace with the repository you want to clone
         ref: main  # Replace with the branch or tag you want to checkout
         path: GTweens
+
+    - name: Set up Git
+      run: |
+        git config --global user.name "Guillem"
+        git config --global user.email "gsunyercaldu@gmail.com"
 
     - name: Create Folder
       run: mkdir GTWeensGodot
@@ -29,15 +39,23 @@ jobs:
       run: mv GTweens/* GTWeensGodot/GTWeens/
       working-directory: ./
 
+    - name: Create and Push Git Tag
+      run: |
+        TAG_NAME="${{ github.event.inputs.tag }}"
+        TAG_MESSAGE="Version $TAG_NAME"
+
+        git tag -a $TAG_NAME -m "$TAG_MESSAGE"
+        git push origin $TAG_NAME
+
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: "${{ github.event.inputs.tag }}"
         files: |
           GTWeensGodot/**/*
       env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: "dum"
 
     - name: Get Release URL
       id: release_url
