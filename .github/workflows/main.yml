@@ -12,7 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - name: Checkout GTweensGodot repository
+      uses: actions/checkout@v2
+      with:
+        repository: Guillemsc/GTweensGodot  # Replace with the repository you want to clone
+        ref: main  # Replace with the branch or tag you want to checkout
+        path: GTweensGodot
+    
+    - name: Checkout GTweens repository
       uses: actions/checkout@v2
       with:
         repository: Guillemsc/GTweens  # Replace with the repository you want to clone
@@ -25,10 +32,10 @@ jobs:
         git config --global user.email "gsunyercaldu@gmail.com"
 
     - name: Create Folder
-      run: mkdir GTWeensGodot
+      run: mkdir ReleaseGTWeensGodot
     
     - name: Create Folder
-      run: mkdir GTWeensGodot/GTWeens
+      run: mkdir ReleaseGTWeensGodot/GTWeens
 
     - name: Log directory contents (Linux/macOS)
       run: |
@@ -36,14 +43,16 @@ jobs:
         tree ./ 
     
     - name: Move Repository Contents
-      run: mv GTweens/* GTWeensGodot/GTWeens/
+      run: mv GTweens/* ReleaseGTWeensGodot/GTWeens/
       working-directory: ./
 
     - name: Create and Push Git Tag
       run: |
         TAG_NAME="${{ github.event.inputs.tag }}"
         TAG_MESSAGE="Version $TAG_NAME"
-
+        
+        working-directory: ./GTweensGodot
+        
         git tag -a $TAG_NAME -m "$TAG_MESSAGE"
         git push origin $TAG_NAME
 
