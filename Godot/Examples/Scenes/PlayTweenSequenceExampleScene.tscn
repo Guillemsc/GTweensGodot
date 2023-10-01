@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkygsjkvxby06"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/PlayTweenSequenceExample.cs" id="1_kqbns"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_nkcu7"]
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/PlayTweenSequenceExample.cs" id="1_kqbns"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_nkcu7"]
 
 [node name="PlayTweenSequenceExampleScene" type="Node2D"]
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://chxs2wqsgcbya"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/Camera2DExample.cs" id="1_4detj"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_7s4g8"]
+
+[node name="Camera2DExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="."]
+script = ExtResource("1_4detj")
+Target = Object(Camera2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"offset":Vector2(0, 0),"anchor_mode":1,"ignore_rotation":true,"enabled":true,"zoom":Vector2(2, 2),"process_callback":1,"limit_left":-10000000,"limit_top":-10000000,"limit_right":10000000,"limit_bottom":10000000,"limit_smoothed":false,"position_smoothing_enabled":false,"position_smoothing_speed":5.0,"rotation_smoothing_enabled":false,"rotation_smoothing_speed":5.0,"drag_horizontal_enabled":false,"drag_vertical_enabled":false,"drag_horizontal_offset":0.0,"drag_vertical_offset":0.0,"drag_left_margin":0.2,"drag_top_margin":0.2,"drag_right_margin":0.2,"drag_bottom_margin":0.2,"editor_draw_screen":true,"editor_draw_limits":false,"editor_draw_drag_margin":false,"script":null)
+
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_7s4g8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

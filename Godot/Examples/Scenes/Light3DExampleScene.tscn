@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl7bvtm2rs7nq"]
+[gd_scene load_steps=6 format=3 uid="uid://b858qr48x5gr1"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/BaseMaterial3DExample.cs" id="1_d0alp"]
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/Light3DExample.cs" id="1_qnqlw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
 transparency = 1
@@ -17,15 +17,15 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.5
 fog_enabled = true
-fog_light_energy = 2.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
 
-[node name="BaseMaterial3DExampleScene" type="Node3D"]
+[node name="Light3DExampleScene" type="Node3D"]
 
-[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
-script = ExtResource("1_d0alp")
-Target = NodePath("../CSGBox3D")
+[node name="Example" type="Node" parent="."]
+script = ExtResource("1_qnqlw")
+Target = Object(DirectionalLight3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 0.6333, 0.773907, 0, -0.773907, 0.6333, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"layers":1,"light_color":Color(1, 1, 1, 1),"light_energy":1.0,"light_indirect_energy":1.0,"light_volumetric_fog_energy":1.0,"light_angular_distance":0.0,"light_negative":false,"light_bake_mode":2,"light_cull_mask":4294967295,"shadow_enabled":true,"shadow_bias":0.1,"shadow_normal_bias":2.0,"shadow_reverse_cull_face":false,"shadow_transmittance_bias":0.05,"shadow_opacity":1.0,"shadow_blur":1.0,"editor_only":false,"directional_shadow_mode":2,"directional_shadow_split_1":0.1,"directional_shadow_split_2":0.2,"directional_shadow_split_3":0.5,"directional_shadow_blend_splits":false,"directional_shadow_fade_start":0.8,"directional_shadow_max_distance":100.0,"directional_shadow_pancake_size":20.0,"sky_mode":0,"script":null)
+
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_6j2xr")

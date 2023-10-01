@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8d4pw3eo1cip"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/EasingTweenExample.cs" id="1_8wjp0"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_fk6rx"]
+[ext_resource type="Texture2D" uid="uid://bgj41wcvk62g7" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-GreenSquare.png" id="3_f3dfo"]
+
+[sub_resource type="Curve" id="Curve_wa1h4"]
+_data = [Vector2(0, 0), 0.0, 5.9502, 0, 0, Vector2(1, 1), 6.72632, 0.0, 0, 0]
+point_count = 2
+
+[node name="EasingTweenExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="."]
+script = ExtResource("1_8wjp0")
+Easing1 = 7
+Easing2 = SubResource("Curve_wa1h4")
+Target1 = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -64),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
+
+Target2 = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 70),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
+
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_fk6rx")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(0, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+texture = ExtResource("3_f3dfo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

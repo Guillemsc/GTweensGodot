@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgj41wcvk62g7"
-path="res://.godot/imported/GTWeensGodot-Examples-GreenSquare.png-82182c62e00463d2c722e451ca2de49f.ctex"
+path="res://.godot/imported/GTWeensGodot-Examples-GreenSquare.png-101866d8179817a9277f633f0bd14198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-GreenSquare.png"
-dest_files=["res://.godot/imported/GTWeensGodot-Examples-GreenSquare.png-82182c62e00463d2c722e451ca2de49f.ctex"]
+source_file="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-GreenSquare.png"
+dest_files=["res://.godot/imported/GTWeensGodot-Examples-GreenSquare.png-101866d8179817a9277f633f0bd14198.ctex"]
 
 [params]
 

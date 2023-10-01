@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://donhgqa7ej726"]
+[gd_scene load_steps=7 format=3 uid="uid://cwmko0ruwavom"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Node3DExample.cs" id="1_0kmty"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
-albedo_color = Color(0.333333, 0.486275, 1, 1)
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/SpriteBase3DExample.cs" id="1_8rs6d"]
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Sprite3DExample.cs" id="1_d25u5"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_4ooad"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
 albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
@@ -19,15 +18,12 @@ fog_light_energy = 2.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
 
-[node name="Node3DExampleScene" type="Node3D"]
+[node name="SpriteBase3DExampleScene" type="Node3D" node_paths=PackedStringArray("Target")]
+script = ExtResource("1_8rs6d")
+Target = NodePath("Sprite3D")
 
-[node name="Example" type="Node" parent="." node_paths=PackedStringArray("NodeToMove")]
-script = ExtResource("1_0kmty")
-NodeToMove = NodePath("../CSGBox3D")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_6j2xr")
-gi_mode = 2
+[node name="Example" type="Node" parent="."]
+script = ExtResource("1_d25u5")
 
 [node name="Plane" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.622862, 0)
@@ -40,6 +36,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.917214, -1.90393)
 gi_mode = 2
 size = Vector3(3.44605, 3.27377, 0.182729)
 material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132583, 0)
+pixel_size = 0.02
+texture = ExtResource("2_4ooad")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.835807, -0.197646, 0.512213, 0, 0.932954, 0.359997, -0.549023, -0.300888, 0.779769, 3.619, 2.894, 5.146)

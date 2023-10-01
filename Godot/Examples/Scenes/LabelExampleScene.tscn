@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://cg3nnf41ep6vf"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/ControlExample.cs" id="1_5xqtq"]
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/ControlExample.cs" id="1_pwaal"]
 
 [node name="ControlExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
-script = ExtResource("1_5xqtq")
-Target = NodePath("")
+[node name="Example" type="Node2D" parent="."]
+script = ExtResource("1_pwaal")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

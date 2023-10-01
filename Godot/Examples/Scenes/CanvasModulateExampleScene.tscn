@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75r3qc52nga0"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/CanvasModulateExample.cs" id="1_edmbe"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_fsx7a"]
+
+[node name="CanvasModulateExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="."]
+rotation = 6.28319
+script = ExtResource("1_edmbe")
+Target = Object(CanvasModulate,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"color":Color(1, 1, 1, 1),"script":null)
+
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasModulate"]
+texture = ExtResource("2_fsx7a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
