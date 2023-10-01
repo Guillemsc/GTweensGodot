@@ -105,8 +105,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 - **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
 
 ## 📦 Installation
-1. [Download the latest GTweensGodot-vX.X.X.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
-2. Unpack the `GTweensGodot-vX.X.X.zip` folder into the Godot project.
+1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
+2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ## 📚 Getting started
