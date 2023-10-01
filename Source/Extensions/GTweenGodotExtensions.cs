@@ -94,7 +94,13 @@ public static class GTweenGodotExtensions
         float duration
     ) => Tween(getter, setter, to, duration, ValidationExtensions.AlwaysValid);
     
-
+    /// <summary>
+    /// Sets the easing function for a GTween using a specified Curve.
+    /// </summary>
+    /// <param name="gTween">The GTween to set the easing function for.</param>
+    /// <param name="curve">The Curve representing the desired easing behavior.</param>
+    /// <returns>The modified GTween with the specified easing function.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="curve"/> is null.</exception>
     public static GTween SetEasing(this GTween gTween, Curve curve)
     {
         if (curve == null)
@@ -107,11 +113,22 @@ public static class GTweenGodotExtensions
         return gTween.SetEasing(curve.ToEasingDelegate());
     }
     
+    /// <summary>
+    /// Plays a GTween.
+    /// </summary>
+    /// <param name="tween">The GTween to play.</param>
     public static void Play(this GTween tween)
     {
         GodotGTweensContextNode.Context.Play(tween);
     }
     
+    /// <summary>
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// </summary>
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     public static Task PlayAsync(this GTween gTween, CancellationToken cancellationToken)
     {
         gTween.Play();
