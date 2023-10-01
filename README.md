@@ -213,7 +213,7 @@ As it can be seen on the example, you can Append/Join different things with the 
 
 ### Tween controls
 - **Play**: plays the tween.
-- **Kill**: kills the tween. This means that the tween will stop playing.
+- **Kill**: kills the tween. This means that the tween will instantly stop playing, leaving it at its current state.
 - **Complete**: instantly reaches the final state of the tween, and stops playing.
 - **Reset**: sets the tween to its initial state, and stops playing.
 - **SetLoops**: sets the amount of times the tween should loop.
