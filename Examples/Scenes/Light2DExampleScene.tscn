@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bynuabshsfkee"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Light2DExample.cs" id="1_p43lc"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_5ycpa"]
+
+[node name="Light2DExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
+script = ExtResource("1_p43lc")
+Target = NodePath("../DirectionalLight2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_5ycpa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
