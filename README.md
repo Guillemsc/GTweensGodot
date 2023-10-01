@@ -206,7 +206,7 @@ As it can be seen on the example, you can Append/Join different things with the 
 - Append/Join Time: adds a time delay (in seconds) to the sequence.
 - Append/Join Sequence: creates a new `GTweenSequenceBuilder` and provides it through the action. Then it automatically builds it and adds the resulting tween to the sequence.
 
-Example of a complex sequence:
+[Example of a complex sequence](https://github.com/Guillemsc/GTweensGodot/blob/main/Examples/Scripts/Cube3DExample.cs):
 
 ![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
 
