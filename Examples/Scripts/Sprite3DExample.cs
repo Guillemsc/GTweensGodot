@@ -6,18 +6,15 @@ using GTweensGodot.Extensions;
 
 namespace GTweensGodot.Examples;
 
-public partial class Sprite2DExample : Node2D
+public partial class Sprite3DExample : Node3D
 {
-    [Export] public Sprite2D Target;
+    [Export] public Sprite3D Target;
 	
     public override void _Ready()
     {
         float tweenDuration = 0.5f;
         
         GTween tween = GTweenSequenceBuilder.New()
-            .Append(Target.TweenOffset(new Vector2(100f, 100f), tweenDuration))
-            .Append(Target.TweenOffsetX(0f, tweenDuration))
-            .Append(Target.TweenOffsetY(0f, tweenDuration))
             .Build();
         
         tween.SetEasing(Easing.InOutCubic);
