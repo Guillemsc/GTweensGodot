@@ -113,7 +113,7 @@ To quickly check if everything has been setup properly, you can go to `GTweensGo
 When you run any of those scenes, a simple functionality example should play.
 
 
-## ⚠️ Troubleshooting
+### ⚠️ Troubleshooting
 - If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project, or that the extracted folder has been renamed. Make sure you don't change the path nor rename any folder, since this will break scene references.
 - If after playing an example scene, nothing happens, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the second installation step.
 
