@@ -88,7 +88,22 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     ```
   
 - **Delays**: Specify delays, allowing precise timing of your animations.
+```csharp
+GTween tween = GTweenSequenceBuilder.New()
+    .AppendTime(0.5f)
+    .Build();
+```
+
 - **Callbacks**: Attach callbacks to tweens for event handling at various points in the animation timeline.
+```csharp
+void Callback()
+{
+}
+
+GTween tween = GTweenSequenceBuilder.New()
+    .AppendCallback(Callback)
+    .Build();
+```
 
 ## 📦 Installation
 1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
@@ -176,14 +191,22 @@ To create sequences, you need to use the helper `GTweenSequenceBuilder`.
     .Append(Target.TweenPositionY(100, 1))
     .AppendTime(0.5f)
     .Append(Target.TweenPositionX(0, 1))
+    .AppendSequence(s => s
+        .AppendTime(0.5f)
+        .Append(Target.TweenPositionX(1, 1))
+        )
     .AppendCallback(() => GD.Print("I'm finished!"))
     .Build();
         
 tween.SetEasing(Easing.InOutCubic);
 tween.Play();
 ```
+As it can be seen on the example, you can Append/Join different things with the builder:
+- Append/Join Callback: adds a callback that will be called when this part of the sequence is executed.
+- Append/Join Time: adds a time delay (in seconds) to the sequence.
+- Append/Join Sequence: creates a new `GTweenSequenceBuilder` and provides it through the action. Then it automatically builds it and adds the resulting tween to the sequence.
 
-Example of a complex sequence:
+[Example of a complex sequence](https://github.com/Guillemsc/GTweensGodot/blob/main/Examples/Scripts/Cube3DExample.cs):
 
 ![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
 
