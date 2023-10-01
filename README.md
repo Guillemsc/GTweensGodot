@@ -1,7 +1,5 @@
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
-**Still in development, not ready to use.**
-
 GTweens-Godot is a lightweight and versatile tweening library for Godot with C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
@@ -88,27 +86,28 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     ```
   
 - **Delays**: Specify delays, allowing precise timing of your animations.
-```csharp
-GTween tween = GTweenSequenceBuilder.New()
-    .AppendTime(0.5f)
-    .Build();
-```
+    ```csharp
+    GTween tween = GTweenSequenceBuilder.New()
+        .AppendTime(0.5f)
+        .Build();
+    ```
 
 - **Callbacks**: Attach callbacks to tweens for event handling at various points in the animation timeline.
-```csharp
-void Callback()
-{
-}
+    ```csharp
+    void Callback()
+    {
+    }
 
-GTween tween = GTweenSequenceBuilder.New()
-    .AppendCallback(Callback)
-    .Build();
-```
+    GTween tween = GTweenSequenceBuilder.New()
+        .AppendCallback(Callback)
+        .Build();
+    ```
+- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
 
 ## 📦 Installation
-1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
-2. Unpack the `GTweensGodot` folder into the Godot project.
-3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+1. [Download the latest GTweensGodot-vX.X.X.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
+2. Unpack the `GTweensGodot-vX.X.X.zip` folder into the Godot project.
+3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot-vX.X.X/GTweensGodot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ## 📚 Getting started
 ### Nomenclature
