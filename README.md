@@ -88,22 +88,22 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     ```
   
 - **Delays**: Specify delays, allowing precise timing of your animations.
-```csharp
-GTween tween = GTweenSequenceBuilder.New()
-    .AppendTime(0.5f)
-    .Build();
-```
+    ```csharp
+    GTween tween = GTweenSequenceBuilder.New()
+        .AppendTime(0.5f)
+        .Build();
+    ```
 
 - **Callbacks**: Attach callbacks to tweens for event handling at various points in the animation timeline.
-```csharp
-void Callback()
-{
-}
+    ```csharp
+    void Callback()
+    {
+    }
 
-GTween tween = GTweenSequenceBuilder.New()
-    .AppendCallback(Callback)
-    .Build();
-```
+    GTween tween = GTweenSequenceBuilder.New()
+        .AppendCallback(Callback)
+        .Build();
+    ```
 - **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
 
 ## 📦 Installation
