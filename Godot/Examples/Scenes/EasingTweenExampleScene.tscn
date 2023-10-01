@@ -10,14 +10,12 @@ point_count = 2
 
 [node name="EasingTweenExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="."]
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target1", "Target2")]
 script = ExtResource("1_8wjp0")
+Target1 = NodePath("../Node2D")
+Target2 = NodePath("../Node2D2")
 Easing1 = 7
 Easing2 = SubResource("Curve_wa1h4")
-Target1 = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, -64),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
-
-Target2 = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 70),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
-
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -64)

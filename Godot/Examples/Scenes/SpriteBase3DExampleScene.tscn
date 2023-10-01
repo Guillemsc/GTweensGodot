@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwmko0ruwavom"]
+[gd_scene load_steps=6 format=3 uid="uid://cwmko0ruwavom"]
 
-[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/SpriteBase3DExample.cs" id="1_8rs6d"]
-[ext_resource type="Script" path="res://GTweensGodot/Examples/Scripts/Sprite3DExample.cs" id="1_d25u5"]
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/SpriteBase3DExample.cs" id="1_d25u5"]
 [ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_4ooad"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
@@ -19,11 +18,12 @@ fog_light_energy = 2.0
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
 
 [node name="SpriteBase3DExampleScene" type="Node3D" node_paths=PackedStringArray("Target")]
-script = ExtResource("1_8rs6d")
+script = ExtResource("1_d25u5")
 Target = NodePath("Sprite3D")
 
-[node name="Example" type="Node" parent="."]
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("1_d25u5")
+Target = NodePath("../Sprite3D")
 
 [node name="Plane" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.622862, 0)

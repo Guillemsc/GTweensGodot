@@ -23,10 +23,9 @@ fog_light_energy = 2.0
 
 [node name="Camera3DExampleScene" type="Node3D"]
 
-[node name="Example" type="Node" parent="."]
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("1_46l4o")
-Target = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(0.835807, -0.197646, 0.512213, 0, 0.932954, 0.359997, -0.549023, -0.300888, 0.779769, 3.619, 2.894, 5.146),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048575,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":60.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
-
+Target = NodePath("../Camera3D")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_6j2xr")

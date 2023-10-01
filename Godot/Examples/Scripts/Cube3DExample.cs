@@ -10,7 +10,6 @@ public partial class Cube3DExample : Node
 {
     [Export] public Node3D Pivot;
     [Export] public Node3D Cube;
-    [Export] public Curve PreJumpSquashCurve;
 
     public override void _Ready()
     {

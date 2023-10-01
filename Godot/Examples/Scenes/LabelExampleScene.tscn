@@ -4,8 +4,9 @@
 
 [node name="ControlExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="."]
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("1_pwaal")
+Target = NodePath("../CanvasLayer/Control")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

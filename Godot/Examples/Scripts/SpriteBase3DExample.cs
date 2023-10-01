@@ -6,7 +6,7 @@ using GTweensGodot.Extensions;
 
 namespace GTweensGodot.Examples;
 
-public partial class SpriteBase3DExample : Node3D
+public partial class SpriteBase3DExample : Node
 {
     [Export] public Sprite3D Target;
 	

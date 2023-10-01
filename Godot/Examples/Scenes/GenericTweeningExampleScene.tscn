@@ -5,10 +5,9 @@
 
 [node name="GenericTweeningExampleScene" type="Node2D"]
 
-[node name="Example" type="Node2D" parent="."]
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Target")]
 script = ExtResource("1_e1e30")
-Target = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":null)
-
+Target = NodePath("../Node2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 
