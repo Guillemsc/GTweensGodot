@@ -104,6 +104,7 @@ GTween tween = GTweenSequenceBuilder.New()
     .AppendCallback(Callback)
     .Build();
 ```
+- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
 
 ## 📦 Installation
 1. [Download the latest release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
