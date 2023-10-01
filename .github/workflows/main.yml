@@ -1,0 +1,75 @@
+name: Download and Create Folder
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for the release'
+        required: true
+
+jobs:
+  download_and_create:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout GTweensGodot repository
+      uses: actions/checkout@v2
+      with:
+        repository: Guillemsc/GTweensGodot  # Replace with the repository you want to clone
+        ref: main  # Replace with the branch or tag you want to checkout
+        path: GTweensGodot
+    
+    - name: Checkout GTweens repository
+      uses: actions/checkout@v2
+      with:
+        repository: Guillemsc/GTweens  # Replace with the repository you want to clone
+        ref: main  # Replace with the branch or tag you want to checkout
+        path: GTweens
+
+    - name: Set up Git
+      run: |
+        git config --global user.name "Guillem"
+        git config --global user.email "gsunyercaldu@gmail.com"
+      env:
+        PAT: ${{ secrets.TOKEN }}
+
+    - name: Create Folder
+      run: mkdir ReleaseGTWeensGodot
+    
+    - name: Create Folder
+      run: mkdir ReleaseGTWeensGodot/GTWeens
+
+    - name: Log directory contents (Linux/macOS)
+      run: |
+        echo "Directory contents:"
+        tree ./ 
+    
+    - name: Move Repository Contents
+      run: mv GTweens/* ReleaseGTWeensGodot/GTWeens/
+      working-directory: ./
+
+    - name: Create and Push Git Tag
+      run: |
+        TAG_NAME="${{ github.event.inputs.tag }}"
+        TAG_MESSAGE="Version $TAG_NAME"
+
+        git remote set-url origin https://guillemsc:${{ secrets.PAT }}@github.com/Guillemsc/GTweensGodot.git
+        git tag -a $TAG_NAME -m "$TAG_MESSAGE"
+        git push origin $TAG_NAME
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: "${{ github.event.inputs.tag }}"
+        files: |
+          GTWeensGodot/**/*
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get Release URL
+      id: release_url
+      run: |
+        echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+        
+    # Add any other steps you need here

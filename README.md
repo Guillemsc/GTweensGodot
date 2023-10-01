@@ -183,6 +183,11 @@ tween.SetEasing(Easing.InOutCubic);
 tween.Play();
 ```
 
+Example of a complex sequence:
+
+![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
+
+
 ### Tween controls
 - **Play**: plays the tween.
 - **Kill**: kills the tween. This means that the tween will stop playing.
@@ -195,5 +200,4 @@ tween.Play();
 ### Tasks
 - **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
 - **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
-
  
