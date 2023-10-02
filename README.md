@@ -181,7 +181,7 @@ node2D.TweenPositionX(100f, 1f);
 node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
 ﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
 ```
-See all [shortcuts you can use](https://github.com/Guillemsc/GTweensGodot#-shortcuts).
+See all [shortcuts you can use](#-shortcuts).
 
 ### Sequences
 Sequences are a combination of tweens that get animated as a group. 
