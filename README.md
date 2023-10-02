@@ -1,13 +1,13 @@
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
-GTweens-Godot is a lightweight and versatile tweening library for Godot with C#. 
+GTweens-Godot is a lightweight and versatile tweening library for Godot 4 with C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
 Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
-## 🤜 Features
+## 🍰 Features
 - **Simple API**: GTweens-Godot provides an intuitive and easy-to-use API with C# extension methods.
     ```csharp
     public partial class TweenExample : Node
@@ -230,4 +230,23 @@ As it can be seen on the example, you can Append/Join different things with the 
 ### Tasks
 - **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
 - **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
+
+## 📖 Shortcuts
+These are the currently avaliable shortcuts for Godot nodes (the list grows with time).
+- **Node2D**: GlobalPosition, Position, GlobalRotation, Rotation, GlobalRotationDegrees, RotationDegrees, GlobalScale, Scale, GlobalSkew, Skew.  
+- **Node3D**: GlobalPosition, Position, GlobalRotation, Rotation, GlobalRotationDegrees, RotationDegrees, GlobalScale, Scale.
+- **Control**: GlobalPosition, Position, Rotation, RotationDegrees, Scale, Size, PivotOffset.
+- **Sprite2D**: Offset.
+- **SpriteBase3D**: Modulate, Offset.
+- **Light2D**: Color, Energy, ShadowColor.
+- **Light3D**: LightColor, LightEnergy, LightIndirectEnergy, LightVolumetricFogEnergy, LightAngularDistance, ShadowBias, ShadowNormalBias, ShadowTransmittanceBias, ShadowOpacity, ShadowBlur.
+- **Camera2D**: Offset, Zoom.
+- **Camera3D**: HOffset, VOffset, Fov.
+- **AudioStreamPlayer2D**: VolumeDb, PitchScale.
+- **AudioStreamPlayer3D**: VolumeDb, PitchScale, AttenuationFilterDb, AttenuationFilterCutoffHz.
+- **CanvasModulate**: Color.
+- **CanvasItem**: Modulate, SelfModulate.
+- **ShaderMaterial**: PropertyInt, PropertyFloat, PropertyVector2, PropertyVector2I, PropertyColor.
+- **BaseMaterial3D**: AlbedoColor, Metallic, MetallicSpecular, Roughness.
+  
  
