@@ -230,4 +230,23 @@ As it can be seen on the example, you can Append/Join different things with the 
 ### Tasks
 - **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
 - **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
+
+## 📖 Shortcuts
+These are the currently avaliable shortcuts for Godot nodes (the list grows with time).
+- **Node2D**: GlobalPosition, Position, GlobalRotation, Rotation, GlobalRotationDegrees, RotationDegrees, GlobalScale, Scale, GlobalSkew, Skew.  
+- **Node3D**: GlobalPosition, Position, GlobalRotation, Rotation, GlobalRotationDegrees, RotationDegrees, GlobalScale, Scale.
+- **Control**: GlobalPosition, Position, Rotation, RotationDegrees, Scale, Size, PivotOffset.
+- **Sprite2D**: Offset.
+- **SpriteBase3D**: Modulate, Offset.
+- **Light2D**: Color, Energy, ShadowColor.
+- **Light3D**: LightColor, LightEnergy, LightIndirectEnergy, LightVolumetricFogEnergy, LightAngularDistance, ShadowBias, ShadowNormalBias, ShadowTransmittanceBias, ShadowOpacity, ShadowBlur.
+- **Camera2D**: Offset, Zoom.
+- **Camera3D**: HOffset, VOffset, Fov.
+- **AudioStreamPlayer2D**: VolumeDb, PitchScale.
+- **AudioStreamPlayer3D**: VolumeDb, PitchScale, AttenuationFilterDb, AttenuationFilterCutoffHz.
+- **CanvasModulate**: Color.
+- **CanvasItem**: Modulate, SelfModulate.
+- **ShaderMaterial**: PropertyInt, PropertyFloat, PropertyVector2, PropertyVector2I, PropertyColor.
+- **BaseMaterial3D**: AlbedoColor, Metallic, MetallicSpecular, Roughness.
+  
  
