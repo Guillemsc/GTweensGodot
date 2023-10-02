@@ -83,7 +83,7 @@ public static class ControlExtensions
         );
     }
     
-    public static GTween TweenRotationDegreesWithin180Range(this Control target, float to, float duration)
+    public static GTween TweenRotationDegrees(this Control target, float to, float duration)
     {
         return GTweenExtensions.Tween(
             () => target.RotationDegrees,

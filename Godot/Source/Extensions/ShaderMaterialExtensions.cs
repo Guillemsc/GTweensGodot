@@ -39,7 +39,7 @@ public static class ShaderMaterialExtensions
         );
     }
     
-    public static GTween TweenPropertyVector2(this ShaderMaterial target, StringName property, Vector2I to, float duration)
+    public static GTween TweenPropertyVector2I(this ShaderMaterial target, StringName property, Vector2I to, float duration)
     {
         return GTweenGodotExtensions.Tween(
             () => target.GetShaderParameter(property).AsVector2I(),

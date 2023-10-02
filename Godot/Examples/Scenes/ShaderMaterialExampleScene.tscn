@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd02ekb4mobh0"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/ShaderMaterialExample.cs" id="1_y4kc5"]
+
+[sub_resource type="Shader" id="Shader_to6t4"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.1.1.stable.mono's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	ALPHA *= albedo.a * albedo_tex.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ts5nm"]
+render_priority = 0
+shader = SubResource("Shader_to6t4")
+shader_parameter/albedo = Color(0.333333, 0.486275, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="Environment" id="Environment_4gk0i"]
+background_mode = 1
+background_color = Color(0.156863, 0.156863, 0.156863, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_light_energy = 2.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
+
+[node name="ShaderMaterialExampleScene" type="Node3D"]
+
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("Target")]
+script = ExtResource("1_y4kc5")
+Target = NodePath("../CSGBox3D")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("ShaderMaterial_ts5nm")
+gi_mode = 2
+
+[node name="Plane" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.622862, 0)
+gi_mode = 2
+size = Vector3(3.44605, 0.192549, 3.69502)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.917214, -1.90393)
+gi_mode = 2
+size = Vector3(3.44605, 3.27377, 0.182729)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.835807, -0.197646, 0.512213, 0, 0.932954, 0.359997, -0.549023, -0.300888, 0.779769, 3.619, 2.894, 5.146)
+fov = 60.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4gk0i")
+camera_attributes = SubResource("CameraAttributesPractical_13f0n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.6333, 0.773907, 0, -0.773907, 0.6333, 0, 0, 0)
+shadow_enabled = true
