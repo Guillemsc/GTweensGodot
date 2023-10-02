@@ -7,7 +7,7 @@ Unlike the default Godot tweening engine, which relies on nodes and their proper
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
-## 🍬 Features
+## 🍰 Features
 - **Simple API**: GTweens-Godot provides an intuitive and easy-to-use API with C# extension methods.
     ```csharp
     public partial class TweenExample : Node
