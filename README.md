@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/issues)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/blob/main/CONTRIBUTING.md)
 [![Release](https://img.shields.io/github/release/Guillemsc/GTweensGodot.svg)](#from-releases)
 [![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](#from-nuget)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?label=Follow)](https://twitter.com/6uillem)
