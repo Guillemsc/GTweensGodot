@@ -124,6 +124,21 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     }
     ```
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
+   
+To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.  
+```csharp
+public partial class TweenExample : Node
+{
+    [Export] public Node2D Target;
+		
+    public override void _Ready()
+    {
+        Target.TweenPosition(new Vector2(100, 0), 3)
+            .SetEasing(Easing.InOutCubic)
+            .Play();
+    }
+}
+```
 
 ### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
