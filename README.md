@@ -110,6 +110,22 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 - **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
 
 ## 📦 Installation
+
+### From NuGet:
+1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
+2. Create the node that's going to update all the tweens. Copy and paste the code from here:
+    ```csharp
+    public partial class GTweensGodotUpdater : Node
+    {
+        public override void _Process(double delta)
+        {
+            GodotGTweensContextNode.Context.Tick((float)delta);
+        }
+    }
+    ```
+3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
+
+### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
@@ -118,7 +134,7 @@ To quickly check if everything has been setup properly, you can go to `GTweensGo
 When you run any of those scenes, a simple functionality example should play.
 
 
-### ⚠️ Troubleshooting
+#### ⚠️ Troubleshooting
 - If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project, or that the extracted folder has been renamed. Make sure you don't change the path nor rename any folder, since this will break scene references.
 - If after playing an example scene, nothing moves or gets animated, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the second installation step.
 
