@@ -108,7 +108,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         .AppendCallback(Callback)
         .Build();
     ```
-- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
+- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween automatically handles that on a safe manner, and kills itself.
 
 ## 📦 Installation
 
