@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/issues)
 [![Release](https://img.shields.io/github/release/Guillemsc/GTweensGodot.svg)](https://github.com/Guillemsc/GTweensGodot/releases/latest)
-[![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](https://www.nuget.org/packages/GTweensGodot/)
+[![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](#from-nuget)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?label=Follow)](https://twitter.com/6uillem)
 
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
