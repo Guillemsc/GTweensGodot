@@ -113,7 +113,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 
 ### From NuGet:
 1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
-2. Create the node that's going to update all the tweens. Copy and paste the code from here:
+2. Create a new node script that's going to update all the tweens. Copy and paste the code from here:
     ```csharp
     public partial class GTweensGodotUpdater : Node
     {
@@ -123,6 +123,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         }
     }
     ```
+    This node can be placed anywhere in your project.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
    
 To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.  
