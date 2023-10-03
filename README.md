@@ -123,7 +123,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         }
     }
     ```
-    This node can be placed anywhere in your project.
+    This script can be placed anywhere in your project.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
    
 To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.  
