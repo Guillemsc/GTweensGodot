@@ -7,8 +7,8 @@ using GTweens.Extensions;
 using GTweens.TweenBehaviours;
 using GTweens.Tweeners;
 using GTweens.Tweens;
+using GTweensGodot.Contexts;
 using GTweensGodot.Tweeners;
-using GodotGTweensContextNode = GTweensGodot.Contexts.GodotGTweensContextNode;
 
 namespace GTweensGodot.Extensions;
 
@@ -119,7 +119,7 @@ public static class GTweenGodotExtensions
     /// <param name="tween">The GTween to play.</param>
     public static void Play(this GTween tween)
     {
-        GodotGTweensContextNode.Context.Play(tween);
+        GodotGTweensContext.Instance.Context.Play(tween);
     }
     
     /// <summary>
