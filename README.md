@@ -1,3 +1,9 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/blob/main/CONTRIBUTING.md)
+[![Release](https://img.shields.io/github/release/Guillemsc/GTweensGodot.svg)](#from-releases)
+[![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](#from-nuget)
+[![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?label=Follow)](https://twitter.com/6uillem)
+
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
 GTweens-Godot is a lightweight and versatile tweening library for Godot 4 with C#. 
@@ -102,9 +108,40 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         .AppendCallback(Callback)
         .Build();
     ```
-- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween is automatically destroyed, so you don't have to worry about object lifetime.
+- **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween automatically handles that on a safe manner, and kills itself.
 
 ## 📦 Installation
+
+### From NuGet:
+1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
+2. Create a new node script, anywhere in your project, that's going to update all the tweens. Copy and paste the code from here:
+    ```csharp
+    public partial class GTweensGodotUpdater : Node
+    {
+        public override void _Process(double delta)
+        {
+            GodotGTweensContextNode.Context.Tick((float)delta);
+        }
+    }
+    ```
+3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
+   
+To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.  
+```csharp
+public partial class TweenExample : Node
+{
+    [Export] public Node2D Target;
+		
+    public override void _Ready()
+    {
+        Target.TweenPosition(new Vector2(100, 0), 3)
+            .SetEasing(Easing.InOutCubic)
+            .Play();
+    }
+}
+```
+
+### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
@@ -113,9 +150,9 @@ To quickly check if everything has been setup properly, you can go to `GTweensGo
 When you run any of those scenes, a simple functionality example should play.
 
 
-### ⚠️ Troubleshooting
+#### ⚠️ Troubleshooting
 - If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project, or that the extracted folder has been renamed. Make sure you don't change the path nor rename any folder, since this will break scene references.
-- If after playing an example scene, nothing happens, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the second installation step.
+- If after playing an example scene, nothing moves or gets animated, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the second installation step.
 
 ## 📚 Getting started
 ### Nomenclature
@@ -181,6 +218,7 @@ node2D.TweenPositionX(100f, 1f);
 node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
 ﻿﻿﻿﻿﻿﻿﻿﻿control.TweenSizeY(200f, 2f);
 ```
+See all [shortcuts you can use](#-shortcuts).
 
 ### Sequences
 Sequences are a combination of tweens that get animated as a group. 
@@ -213,7 +251,7 @@ As it can be seen on the example, you can Append/Join different things with the 
 - Append/Join Time: adds a time delay (in seconds) to the sequence.
 - Append/Join Sequence: creates a new `GTweenSequenceBuilder` and provides it through the action. Then it automatically builds it and adds the resulting tween to the sequence.
 
-[Example of a complex sequence](https://github.com/Guillemsc/GTweensGodot/blob/main/Examples/Scripts/Cube3DExample.cs):
+[Example of a complex sequence](https://github.com/Guillemsc/GTweensGodot/blob/main/Godot/Examples/Scripts/Cube3DExample.cs):
 
 ![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
 
