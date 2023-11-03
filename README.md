@@ -120,7 +120,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     {
         public override void _Process(double delta)
         {
-            GodotGTweensContextNode.Context.Tick((float)delta);
+            GodotGTweensContext.Instance.Context.Tick((float)delta);
         }
     }
     ```
