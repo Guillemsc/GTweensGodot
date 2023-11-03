@@ -12,6 +12,7 @@ material = SubResource("ShaderMaterial_6j7qb")
 script = ExtResource("1_bt2qu")
 Target = NodePath("../Node2D")
 Loops = 5
+ResetMode = 2
 
 [node name="Node2D" type="Node2D" parent="."]
 
