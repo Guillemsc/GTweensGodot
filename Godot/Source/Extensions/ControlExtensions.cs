@@ -89,7 +89,7 @@ public static class ControlExtensions
         return GTweenExtensions.Tween(
             () => target.RotationDegrees,
             current => target.RotationDegrees = current, 
-            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleDegrees(target.Rotation, to, rotationMode), 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleDegrees(target.RotationDegrees, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
