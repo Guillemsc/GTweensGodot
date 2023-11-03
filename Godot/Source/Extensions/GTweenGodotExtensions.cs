@@ -17,7 +17,7 @@ public static class GTweenGodotExtensions
     public static GTween Tween(
         Tweener<Vector2>.Getter getter, 
         Tweener<Vector2>.Setter setter,
-        Vector2 to, 
+        Tweener<Vector2>.Getter to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
@@ -26,6 +26,14 @@ public static class GTweenGodotExtensions
         tweenBehaviour.Add(new GodotVector2Tweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
+
+    public static GTween Tween(
+        Tweener<Vector2>.Getter getter,
+        Tweener<Vector2>.Setter setter,
+        Vector2 to,
+        float duration,
+        ValidationDelegates.Validation validation
+    ) => Tween(getter, setter, () => to, duration, validation);
     
     public static GTween Tween(
         Tweener<Vector2>.Getter getter, 
@@ -37,7 +45,7 @@ public static class GTweenGodotExtensions
     public static GTween Tween(
         Tweener<Vector2I>.Getter getter, 
         Tweener<Vector2I>.Setter setter,
-        Vector2I to, 
+        Tweener<Vector2I>.Getter to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
@@ -46,6 +54,14 @@ public static class GTweenGodotExtensions
         tweenBehaviour.Add(new GodotVector2ITweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
+
+    public static GTween Tween(
+        Tweener<Vector2I>.Getter getter,
+        Tweener<Vector2I>.Setter setter,
+        Vector2I to,
+        float duration,
+        ValidationDelegates.Validation validation
+    ) => Tween(getter, setter, () => to, duration, validation);
     
     public static GTween Tween(
         Tweener<Vector2I>.Getter getter, 
@@ -57,7 +73,7 @@ public static class GTweenGodotExtensions
     public static GTween Tween(
         Tweener<Vector3>.Getter getter, 
         Tweener<Vector3>.Setter setter,
-        Vector3 to, 
+        Tweener<Vector3>.Getter to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
@@ -66,6 +82,14 @@ public static class GTweenGodotExtensions
         tweenBehaviour.Add(new GodotVector3Tweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
+
+    public static GTween Tween(
+        Tweener<Vector3>.Getter getter,
+        Tweener<Vector3>.Setter setter,
+        Vector3 to,
+        float duration,
+        ValidationDelegates.Validation validation
+    ) => Tween(getter, setter, () => to, duration, validation);
     
     public static GTween Tween(
         Tweener<Vector3>.Getter getter, 
@@ -77,7 +101,7 @@ public static class GTweenGodotExtensions
     public static GTween Tween(
         Tweener<Color>.Getter getter, 
         Tweener<Color>.Setter setter,
-        Color to, 
+        Tweener<Color>.Getter to, 
         float duration, 
         ValidationDelegates.Validation validation
     )
@@ -86,6 +110,14 @@ public static class GTweenGodotExtensions
         tweenBehaviour.Add(new GodotColorTweener(getter, setter, to, duration, validation));
         return new GTween(tweenBehaviour);
     }
+    
+    public static GTween Tween(
+        Tweener<Color>.Getter getter, 
+        Tweener<Color>.Setter setter,
+        Color to, 
+        float duration, 
+        ValidationDelegates.Validation validation
+    ) => Tween(getter, setter, () => to, duration, validation);
     
     public static GTween Tween(
         Tweener<Color>.Getter getter, 

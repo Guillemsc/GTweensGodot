@@ -10,7 +10,7 @@ public sealed class GodotVector2ITweener : Tweener<Vector2I>
     public GodotVector2ITweener(
         Getter getter,
         Setter setter,
-        Vector2I to,
+        Getter to,
         float duration,
         ValidationDelegates.Validation validation
     )

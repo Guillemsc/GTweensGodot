@@ -10,7 +10,7 @@ public sealed class GodotColorTweener : Tweener<Color>
     public GodotColorTweener(
         Getter getter,
         Setter setter,
-        Color to,
+        Getter to,
         float duration,
         ValidationDelegates.Validation validation
     )

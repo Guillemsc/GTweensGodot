@@ -1,4 +1,5 @@
 ﻿using Godot;
+using GTweens.Enums;
 using GTweens.Extensions;
 using GTweens.Tweens;
 
@@ -72,23 +73,23 @@ public static class ControlExtensions
         );
     }
     
-    public static GTween TweenRotation(this Control target, float to, float duration)
+    public static GTween TweenRotation(this Control target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation,
             current => target.Rotation = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleRadiants(target.Rotation, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
     
-    public static GTween TweenRotationDegrees(this Control target, float to, float duration)
+    public static GTween TweenRotationDegrees(this Control target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.RotationDegrees,
             current => target.RotationDegrees = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleDegrees(target.Rotation, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );

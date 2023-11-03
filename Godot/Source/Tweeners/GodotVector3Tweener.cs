@@ -10,7 +10,7 @@ public sealed class GodotVector3Tweener : Tweener<Vector3>
     public GodotVector3Tweener(
         Getter currentValueGetter,
         Setter setter,
-        Vector3 to,
+        Getter to,
         float duration,
         ValidationDelegates.Validation validation
     )

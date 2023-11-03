@@ -1,4 +1,5 @@
 ﻿using Godot;
+using GTweens.Enums;
 using GTweens.Extensions;
 using GTweens.Tweens;
 
@@ -72,45 +73,45 @@ public static class Node2DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotation(this Node2D target, float to, float duration)
+    public static GTween TweenGlobalRotation(this Node2D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalRotation,
             current => target.GlobalRotation = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleRadiants(target.GlobalRotation, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
     
-    public static GTween TweenRotation(this Node2D target, float to, float duration)
+    public static GTween TweenRotation(this Node2D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation,
             current => target.Rotation = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleRadiants(target.Rotation, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
     
-    public static GTween TweenGlobalRotationDegrees(this Node2D target, float to, float duration)
+    public static GTween TweenGlobalRotationDegrees(this Node2D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalRotationDegrees,
             current => target.GlobalRotationDegrees = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleDegrees(target.GlobalRotationDegrees, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
     }
     
-    public static GTween TweenRotationDegrees(this Node2D target, float to, float duration)
+    public static GTween TweenRotationDegrees(this Node2D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.RotationDegrees,
             current => target.RotationDegrees = current, 
-            to, 
+            () => GTweens.Extensions.AngleExtensions.GetDestinationAngleDegrees(target.RotationDegrees, to, rotationMode), 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
         );
