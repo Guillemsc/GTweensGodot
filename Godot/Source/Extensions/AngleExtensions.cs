@@ -5,16 +5,34 @@ namespace GTweensGodot.Extensions;
 
 public static class AngleExtensions
 {
+    public static Vector3 Clamp360(Vector3 eulerAngles)
+    {
+        return new Vector3(
+            GTweens.Extensions.AngleExtensions.Clamp360(eulerAngles.X), 
+            GTweens.Extensions.AngleExtensions.Clamp360(eulerAngles.Y), 
+            GTweens.Extensions.AngleExtensions.Clamp360(eulerAngles.Z)
+        );
+    }
+    
+    public static Vector3 DeltaAngle(Vector3 current, Vector3 target)
+    {
+        return new Vector3(
+            GTweens.Extensions.AngleExtensions.DeltaAngle(current.X, target.X), 
+            GTweens.Extensions.AngleExtensions.DeltaAngle(current.Y, target.Y), 
+            GTweens.Extensions.AngleExtensions.DeltaAngle(current.Z, target.Z)
+        );
+    }
+    
     public static Vector3 GetDestinationAngleDegrees(Vector3 origin, Vector3 destination, RotationMode mode)
     {
         switch (mode)
         {
             case RotationMode.ShortestDistance:
             {
-                Vector3 clampedOrigin = GTweens.Extensions.AngleExtensions.Clamp360(origin);
-                Vector3 clampedDestination = GTweens.Extensions.AngleExtensions.Clamp360(destination);
+                Vector3 clampedOrigin = Clamp360(origin);
+                Vector3 clampedDestination = Clamp360(destination);
         
-                Vector3 deltaAngle = GTweens.Extensions.AngleExtensions.DeltaAngle(clampedOrigin, clampedDestination);
+                Vector3 deltaAngle = DeltaAngle(clampedOrigin, clampedDestination);
         
                 return origin + deltaAngle;
             }
