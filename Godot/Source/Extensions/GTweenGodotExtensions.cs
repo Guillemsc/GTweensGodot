@@ -162,7 +162,11 @@ public static class GTweenGodotExtensions
     public static void Play(this GTween tween, bool instantly)
     {
         tween.Play();
-        tween.Complete();
+
+        if (instantly)
+        {
+            tween.Complete();   
+        }
     }
     
     /// <summary>
@@ -200,5 +204,23 @@ public static class GTweenGodotExtensions
         gTween.Complete();
         
         return Task.CompletedTask;
+    }
+    
+    /// <summary>
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// </summary>
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="completeToken">A token to complete the GTween's execution.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    public static Task PlayAsync(this GTween gTween, CancellationToken completeToken, CancellationToken cancellationToken)
+    {
+        gTween.Play();
+
+        cancellationToken.Register(gTween.Kill);
+        completeToken.Register(gTween.Complete);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
     }
 }
