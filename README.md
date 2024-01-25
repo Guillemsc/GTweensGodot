@@ -109,6 +109,15 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         .AppendCallback(Callback)
         .Build();
     ```
+- **Async support**: GTweens uses the full power of C# and async tasks:
+    ```csharp
+    async Task RunSomething(CancellationToken)
+    {
+        await tween1.PlayAsync(cancellationToken);
+        await tween2.PlayAsync(cancellationToken);
+    }
+    ```
+  
 - **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween automatically handles that on a safe manner, and kills itself.
 
 ## 📦 Installation
