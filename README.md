@@ -123,6 +123,19 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 
 ## 📦 Installation
 
+### Form Asset Library
+1. Inside Godot, open the AssetLib tab.
+   
+![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/6d2aaa22-9d3a-462e-82af-38852bbee417)
+
+2. Search for and select "GTweens (C#)".
+   
+![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/2ff4a54f-af89-49f3-93af-8cd65a9f2214)
+
+3. Download then install the asset.
+
+4. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+
 ### From NuGet:
 1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
 2. Create a new node script, anywhere in your project, that's going to update all the tweens. Copy and paste the code from here:
@@ -151,19 +164,6 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         }
     }
     ```
-
-### Form Asset Library
-1. Inside Godot, open the AssetLib tab.
-   
-![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/6d2aaa22-9d3a-462e-82af-38852bbee417)
-
-2. Search for and select "GTweens (C#)".
-   
-![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/2ff4a54f-af89-49f3-93af-8cd65a9f2214)
-
-3. Download then install the asset.
-
-4. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
