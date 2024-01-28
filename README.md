@@ -137,28 +137,38 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     ```
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
    
-To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.  
-```csharp
-public partial class TweenExample : Node
-{
-    [Export] public Node2D Target;
-		
-    public override void _Ready()
+    To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.
+    ```csharp
+    public partial class TweenExample : Node
     {
-        Target.TweenPosition(new Vector2(100, 0), 3)
-            .SetEasing(Easing.InOutCubic)
-            .Play();
+        [Export] public Node2D Target;
+		
+        public override void _Ready()
+        {
+            Target.TweenPosition(new Vector2(100, 0), 3)
+               .SetEasing(Easing.InOutCubic)
+               .Play();
+        }
     }
-}
-```
+    ```
+
+### Form Asset Library
+1. Inside Godot, open the AssetLib tab.
+   
+![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/6d2aaa22-9d3a-462e-82af-38852bbee417)
+
+2. Search for and select "GTweens (C#)".
+   
+![image](https://github.com/Guillemsc/GTweensGodot/assets/17142208/2ff4a54f-af89-49f3-93af-8cd65a9f2214)
+
+3. Download then install the asset.
+
+4. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
 
 ### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
-
-To quickly check if everything has been setup properly, you can go to `GTweensGodot/Godot/Examples/Scenes/` and open any of the example scenes. 
-When you run any of those scenes, a simple functionality example should play.
 
 > [!WARNING]
 > If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project,
@@ -167,7 +177,11 @@ When you run any of those scenes, a simple functionality example should play.
 
 ## ✔️ After installing
 > [!NOTE]
-> If after playing an example scene, nothing moves or gets animated, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the third installation step.
+> (Except on NuGet installation) To quickly check if everything has been setup properly, you can go to `GTweensGodot/Godot/Examples/Scenes/` and open any of the example scenes. 
+When you run any of those scenes, a simple functionality example should play.
+
+> [!NOTE]
+> If after playing an example scene, nothing moves or gets animated, this means that the `GodotGTweensContextNode.cs` has not been autoloaded. Make sure to properly follow the last installation step.
 
 ## 📚 Getting started
 ### Nomenclature
