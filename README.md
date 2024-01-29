@@ -1,10 +1,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/blob/main/CONTRIBUTING.md)
 [![Release](https://img.shields.io/github/release/Guillemsc/GTweensGodot.svg)](#from-releases)
 [![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](#from-nuget)
 [![Downloads](https://img.shields.io/nuget/dt/GTweensGodot)](https://www.nuget.org/packages/GTweensGodot)
+[![Tests](https://github.com/Guillemsc/GTweens/actions/workflows/tests.yml/badge.svg)](https://github.com/Guillemsc/GTweens/actions/workflows/tests.yml)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?label=Follow)](https://twitter.com/6uillem)
 <img src="https://img.shields.io/badge/Godot-v4.x-%23478cbf?logo=godot-engine&logoColor=cyian&color=green">
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Guillemsc/GTweensGodot/blob/main/CONTRIBUTING.md)
 
 ![LogoWide](https://github.com/Guillemsc/GTweensGodot/assets/17142208/704636fa-27da-42c3-b9c5-a5bc6e6a870c)
 
