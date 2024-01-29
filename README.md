@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/release/Guillemsc/GTweensGodot.svg)](#from-releases)
 [![NuGet](https://img.shields.io/nuget/v/GTweensGodot.svg?label=nuget)](#from-nuget)
 [![Downloads](https://img.shields.io/nuget/dt/GTweensGodot)](https://www.nuget.org/packages/GTweensGodot)
-[![Tests](https://github.com/Guillemsc/GTweens/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/Guillemsc/GTweens/actions/workflows/build_and_test.yml)
+[![Tests](https://github.com/Guillemsc/GTweens/actions/workflows/tests.yml/badge.svg)](https://github.com/Guillemsc/GTweens/actions/workflows/tests.yml)
 [![Twitter Follow](https://img.shields.io/badge/twitter-%406uillem-blue.svg?label=Follow)](https://twitter.com/6uillem)
 <img src="https://img.shields.io/badge/Godot-v4.x-%23478cbf?logo=godot-engine&logoColor=cyian&color=green">
 
