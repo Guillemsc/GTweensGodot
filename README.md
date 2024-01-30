@@ -242,7 +242,7 @@ GTween tween = GTweenGodotExtensions.Tween(
 ```
 
 ### Shortcut tweening
-GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can start a tween directly from a reference to these objects, like:
+GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can create a tween directly from a reference to these objects, like:
 ```csharp
 node2D.TweenPositionX(100f, 1f);
 node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
