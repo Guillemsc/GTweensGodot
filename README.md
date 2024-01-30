@@ -12,7 +12,7 @@
 GTweens-Godot is a lightweight and versatile tweening library for Godot 4 with C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
-Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
+Unlike the default Godot tweening engine, which relies on nodes and their string properties to create animations, this tweening engine doesn't require the use of nodes. 
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
