@@ -316,5 +316,8 @@ These are the currently avaliable shortcuts for Godot nodes (the list grows with
 - **CanvasItem**: Modulate, SelfModulate.
 - **ShaderMaterial**: PropertyInt, PropertyFloat, PropertyVector2, PropertyVector2I, PropertyColor.
 - **BaseMaterial3D**: AlbedoColor, Metallic, MetallicSpecular, Roughness.
+
+  ![Reddit](https://github.com/Guillemsc/GTweensGodot/assets/17142208/f03cca23-94b5-484b-8202-0d1961b14f98)
+
   
  
