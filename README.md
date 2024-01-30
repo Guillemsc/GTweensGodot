@@ -254,7 +254,7 @@ See all [shortcuts you can use](#-shortcuts).
 Sequences are a combination of tweens that get animated as a group. 
 Sequences can be contained inside other sequences without any limit to the depth of the hierarchy.
 To create sequences, you need to use the helper `GTweenSequenceBuilder`.
-- First you call to start creating a new sequence `New()`.
+- First you call to start creating a new sequence with `GTweenSequenceBuilder.New()`.
 - Next you `Append()` or `Join()` any tweens to the sequence.
 	- **Append**: Adds the given tween to the end of the Sequence. This tween will play after all the previous tweens have finished.
 	- **Join**: Inserts the given tween at the same time position of the last tween added to the Sequence. This tween will play at the same time as the previous tween.
