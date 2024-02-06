@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://hpv0xi7q2eyl"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/PauseGameExample.cs" id="1_kh8d0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
+albedo_color = Color(0.333333, 0.486275, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejucv"]
+albedo_color = Color(0.654902, 0.517647, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[sub_resource type="Environment" id="Environment_4gk0i"]
+background_mode = 1
+background_color = Color(0.156863, 0.156863, 0.156863, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_light_color = Color(0.121569, 0.137255, 0.160784, 1)
+fog_light_energy = 2.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
+
+[node name="PauseGameExampleScene" type="Node3D"]
+
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("PausableTarget", "UnpausableTarget", "TogglePauseButton")]
+script = ExtResource("1_kh8d0")
+PausableTarget = NodePath("../CubePivot/PausableCube")
+UnpausableTarget = NodePath("../CubePivot/UnpausableCube")
+TogglePauseButton = NodePath("../CanvasLayer/Control/Button")
+
+[node name="CubePivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.522073, 0)
+
+[node name="PausableCube" type="CSGBox3D" parent="CubePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.777, 1.256, 0)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+
+[node name="UnpausableCube" type="CSGBox3D" parent="CubePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77726, 1.25634, 0)
+material_override = SubResource("StandardMaterial3D_ejucv")
+gi_mode = 2
+
+[node name="Plane" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.622862, 0)
+gi_mode = 2
+size = Vector3(3.44605, 0.192549, 3.69502)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.917214, -1.90393)
+gi_mode = 2
+size = Vector3(3.44605, 3.27377, 0.182729)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.932954, 0.359997, 0, -0.359997, 0.932953, 0, 2.274, 5.146)
+fov = 65.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4gk0i")
+camera_attributes = SubResource("CameraAttributesPractical_13f0n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.6333, 0.773907, 0, -0.773907, 0.6333, 0, 0, 0)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -120.0
+offset_right = 136.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 31
+text = "Toggle Pause"
