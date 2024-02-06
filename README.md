@@ -282,9 +282,9 @@ As it can be seen on the example, you can Append/Join different things with the 
 
 ![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
 
-
 ### Tween controls
-- **Play**: plays the tween.
+- **Play**: plays the tween (will be paused if `GetTree().Paused` is set to true).
+- **PlayUnpausable**: plays the tween (won't be paused if `GetTree().Paused` is set to true).
 - **Kill**: kills the tween. This means that the tween will instantly stop playing, leaving it at its current state.
 - **Complete**: instantly reaches the final state of the tween, and stops playing.
 - **Reset**: sets the tween to its initial state, and stops playing.
