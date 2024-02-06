@@ -4,12 +4,12 @@ namespace GTweensGodot.Contexts;
 
 public partial class GodotGTweensContextNode : Node
 {
-    public override void _Ready()
+    public sealed override void _Ready()
     {
         ProcessMode = ProcessModeEnum.Always;
     }
 
-    public override void _Process(double delta)
+    public sealed override void _Process(double delta)
     {
         float floatDelta = (float)delta;
         
