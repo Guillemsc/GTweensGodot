@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyuy3vsviwy1c"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/ClockExample.cs" id="1_yftv5"]
+
+[node name="CardsTweeningExampleScene" type="Node2D"]
+
+[node name="Example" type="Node2D" parent="." node_paths=PackedStringArray("Targets")]
+script = ExtResource("1_yftv5")
+Targets = []
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

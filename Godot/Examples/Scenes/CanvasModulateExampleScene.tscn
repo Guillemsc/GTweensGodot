@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://c75r3qc52nga0"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/CanvasModulateExample.cs" id="1_edmbe"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_fsx7a"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BlueSquare.png" id="2_fsx7a"]
+
 
 [node name="CanvasModulateExampleScene" type="Node2D"]
 

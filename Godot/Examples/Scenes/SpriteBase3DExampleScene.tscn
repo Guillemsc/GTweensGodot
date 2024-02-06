@@ -1,7 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwmko0ruwavom"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/SpriteBase3DExample.cs" id="1_d25u5"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_4ooad"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BlueSquare.png" id="2_4ooad"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
 albedo_color = Color(0.160784, 0.160784, 0.160784, 1)

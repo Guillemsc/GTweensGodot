@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqb6720cbo87"
-path="res://.godot/imported/GTweensGodot-Examples-BrownSquare.png-d03226e7809e35fb65c75a30eb5cb438.ctex"
+uid="uid://chygpy8a4wnl2"
+path="res://.godot/imported/GTweensGodot-Examples-WhiteSquare.png-6f3f14df1ce1111c442d44a003228509.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BrownSquare.png"
-dest_files=["res://.godot/imported/GTweensGodot-Examples-BrownSquare.png-d03226e7809e35fb65c75a30eb5cb438.ctex"]
+source_file="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-WhiteSquare.png"
+dest_files=["res://.godot/imported/GTweensGodot-Examples-WhiteSquare.png-6f3f14df1ce1111c442d44a003228509.ctex"]
 
 [params]
 

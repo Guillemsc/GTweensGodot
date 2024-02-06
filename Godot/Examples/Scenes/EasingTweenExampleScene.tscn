@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8d4pw3eo1cip"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/EasingTweenExample.cs" id="1_8wjp0"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_fk6rx"]
-[ext_resource type="Texture2D" uid="uid://bgj41wcvk62g7" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-GreenSquare.png" id="3_f3dfo"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BlueSquare.png" id="2_fk6rx"]
+[ext_resource type="Texture2D" uid="uid://bgj41wcvk62g7" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-GreenSquare.png" id="3_f3dfo"]
 
 [sub_resource type="Curve" id="Curve_wa1h4"]
 _data = [Vector2(0, 0), 0.0, 5.9502, 0, 0, Vector2(1, 1), 6.72632, 0.0, 0, 0]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://cocfrb0aihf8"]
+
+[ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/CubesAndBall3DExample.cs" id="1_7eh4r"]
+
+[sub_resource type="Curve" id="Curve_uodv4"]
+min_value = -1.0
+_data = [Vector2(0, 0.0124309), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.00345302), 0.0, 0.0, 0, 0, Vector2(0.106742, 0.865331), 0.0, 0.0, 0, 0, Vector2(0.245318, -0.723757), 0.0, 0.0, 0, 0, Vector2(0.402622, 0.48826), 0.0, 0.0, 0, 0, Vector2(0.565543, -0.472376), 0.0, 0.0, 0, 0, Vector2(0.7603, 0.344613), 0.0, 0.0, 0, 0, Vector2(0.876405, -0.28384), 0.0, 0.0, 0, 0, Vector2(1, 0.00345302), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2xr"]
+albedo_color = Color(0.811765, 0.686275, 0.0705882, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wrf5"]
+albedo_color = Color(0.811, 0.688, 0.071, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbdrq"]
+albedo_color = Color(0.160784, 0.160784, 0.509804, 1)
+
+[sub_resource type="Environment" id="Environment_4gk0i"]
+background_mode = 1
+background_color = Color(0.156863, 0.156863, 0.156863, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_color = Color(0.129412, 0.129412, 0.129412, 1)
+fog_light_energy = 2.0
+fog_density = 0.0662
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_13f0n"]
+
+[node name="Cube3DExampleScene" type="Node3D"]
+
+[node name="Example" type="Node" parent="." node_paths=PackedStringArray("GeometryPivot", "Cubes", "BallPivot", "ShakePivot")]
+script = ExtResource("1_7eh4r")
+GeometryPivot = NodePath("../ShakePivot/GeometryPivot")
+Cubes = [NodePath("../ShakePivot/GeometryPivot/CSGBox3D"), NodePath("../ShakePivot/GeometryPivot/CSGBox3D2"), NodePath("../ShakePivot/GeometryPivot/CSGBox3D3"), NodePath("../ShakePivot/GeometryPivot/CSGBox3D4"), NodePath("../ShakePivot/GeometryPivot/CSGBox3D5")]
+BallPivot = NodePath("../ShakePivot/GeometryPivot/BallPivot")
+ShakePivot = NodePath("../ShakePivot")
+BaseShakeCurve = SubResource("Curve_uodv4")
+
+[node name="ShakePivot" type="Node3D" parent="."]
+
+[node name="GeometryPivot" type="Node3D" parent="ShakePivot"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477927, 0)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.272073, -2.5)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.272073, 2.5)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.272073, -2.5)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.272073, 2.5)
+material_override = SubResource("StandardMaterial3D_6j2xr")
+gi_mode = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="BallPivot" type="Node3D" parent="ShakePivot/GeometryPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477927, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ShakePivot/GeometryPivot/BallPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+material_override = SubResource("StandardMaterial3D_8wrf5")
+
+[node name="Base" type="CSGBox3D" parent="ShakePivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.83947, 0)
+gi_mode = 2
+size = Vector3(6, 12.626, 6)
+material = SubResource("StandardMaterial3D_wbdrq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.835807, -0.197646, 0.512213, 0, 0.932954, 0.359996, -0.549023, -0.300888, 0.779769, 5.468, 4.04, 7.961)
+fov = 65.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4gk0i")
+camera_attributes = SubResource("CameraAttributesPractical_13f0n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.6333, 0.773907, 0, -0.773907, 0.6333, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true

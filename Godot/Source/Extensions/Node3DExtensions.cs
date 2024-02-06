@@ -51,6 +51,39 @@ public static class Node3DExtensions
         );
     }
     
+    public static GTween TweenGlobalPositionXY(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.GlobalPosition.X, target.GlobalPosition.Y),
+            current => target.GlobalPosition = new Vector3(current.X, current.Y, target.GlobalPosition.Z), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenGlobalPositionXZ(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.GlobalPosition.X, target.GlobalPosition.Z),
+            current => target.GlobalPosition = new Vector3(current.X, target.GlobalPosition.Y, current.Y), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenGlobalPositionYZ(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.GlobalPosition.Y, target.GlobalPosition.Z),
+            current => target.GlobalPosition = new Vector3(target.GlobalPosition.X, current.X, current.Y), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
     public static GTween TweenPosition(this Node3D target, Vector3 to, float duration)
     {
         return GTweenGodotExtensions.Tween(
@@ -95,7 +128,40 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotation(this Node3D target, Vector3 to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenPositionXY(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.Position.X, target.Position.Y),
+            current => target.Position = new Vector3(current.X, current.Y, target.Position.Z), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenPositionXZ(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.Position.X, target.Position.Z),
+            current => target.Position = new Vector3(current.X, target.Position.Y, current.Y), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenPositionYZ(this Node3D target, Vector2 to, float duration)
+    {
+        return GTweenGodotExtensions.Tween(
+            () => new Vector2(target.Position.Y, target.Position.Z),
+            current => target.Position = new Vector3(target.Position.X, current.X, current.Y), 
+            to, 
+            duration,
+            GodotObjectExtensions.GetGodotObjectValidationFunction(target)
+        );
+    }
+    
+    public static GTween TweenGlobalRotation(this Node3D target, Vector3 to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenGodotExtensions.Tween(
             () => target.GlobalRotation,
@@ -106,7 +172,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationX(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenGlobalRotationX(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.X,
@@ -117,7 +183,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationY(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenGlobalRotationY(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.Y,
@@ -128,7 +194,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenGlobalRotationZ(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenGlobalRotationZ(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.GlobalRotation.Z,
@@ -139,7 +205,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenRotation(this Node3D target, Vector3 to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenRotation(this Node3D target, Vector3 to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenGodotExtensions.Tween(
             () => target.Rotation,
@@ -150,7 +216,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenRotationX(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenRotationX(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation.X,
@@ -161,7 +227,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenRotationY(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenRotationY(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation.Y,
@@ -172,7 +238,7 @@ public static class Node3DExtensions
         );
     }
     
-    public static GTween TweenRotationZ(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.TotalDistance)
+    public static GTween TweenRotationZ(this Node3D target, float to, float duration, RotationMode rotationMode = RotationMode.ShortestDistance)
     {
         return GTweenExtensions.Tween(
             () => target.Rotation.Z,

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4boxmf052q2t"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/Sprite2DExample.cs" id="1_ocojg"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_sjdxc"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BlueSquare.png" id="2_sjdxc"]
 
 [node name="Sprite2DExampleScene" type="Node2D"]
 

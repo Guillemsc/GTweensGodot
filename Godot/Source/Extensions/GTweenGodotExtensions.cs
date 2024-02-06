@@ -146,16 +146,25 @@ public static class GTweenGodotExtensions
     }
     
     /// <summary>
-    /// Plays a GTween.
+    /// Plays a GTween. This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="tween">The GTween to play.</param>
     public static void Play(this GTween tween)
     {
-        GodotGTweensContext.Instance.Context.Play(tween);
+        GodotGTweensContext.Instance.PausableContext.Play(tween);
+    }
+    
+    /// <summary>
+    /// Plays a GTween. This tween will not be paused when GetTree().Paused is set to true.
+    /// </summary>
+    /// <param name="tween">The GTween to play.</param>
+    public static void PlayUnpausable(this GTween tween)
+    {
+        GodotGTweensContext.Instance.UnpausableContext.Play(tween);
     }
 
     /// <summary>
-    /// Plays a GTween.
+    /// Plays a GTween. This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="tween">The GTween to play.</param>
     /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
@@ -170,8 +179,24 @@ public static class GTweenGodotExtensions
     }
     
     /// <summary>
+    /// Plays a GTween. This tween will not be paused when GetTree().Paused is set to true.
+    /// </summary>
+    /// <param name="tween">The GTween to play.</param>
+    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
+    public static void PlayUnpausable(this GTween tween, bool instantly)
+    {
+        tween.PlayUnpausable();
+
+        if (instantly)
+        {
+            tween.Complete();   
+        }
+    }
+    
+    /// <summary>
     /// Asynchronously plays a GTween and awaits its completion or cancellation.
     /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="gTween">The GTween to play.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
@@ -188,6 +213,24 @@ public static class GTweenGodotExtensions
     /// <summary>
     /// Asynchronously plays a GTween and awaits its completion or cancellation.
     /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will not be paused when GetTree().Paused is set to true.
+    /// </summary>
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    public static Task PlayUnpausableAsync(this GTween gTween, CancellationToken cancellationToken)
+    {
+        gTween.PlayUnpausable();
+
+        cancellationToken.Register(gTween.Kill);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
+    }
+    
+    /// <summary>
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="gTween">The GTween to play.</param>
     /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
@@ -209,6 +252,29 @@ public static class GTweenGodotExtensions
     /// <summary>
     /// Asynchronously plays a GTween and awaits its completion or cancellation.
     /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will not be paused when GetTree().Paused is set to true.
+    /// </summary>
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    public static Task PlayUnpausableAsync(this GTween gTween, bool instantly, CancellationToken cancellationToken)
+    {
+        if (!instantly)
+        {
+            return gTween.PlayUnpausableAsync(cancellationToken);
+        }
+        
+        gTween.Play();
+        gTween.Complete();
+        
+        return Task.CompletedTask;
+    }
+    
+    /// <summary>
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="gTween">The GTween to play.</param>
     /// <param name="completeToken">A token to complete the GTween's execution.</param>
@@ -217,6 +283,25 @@ public static class GTweenGodotExtensions
     public static Task PlayAsync(this GTween gTween, CancellationToken completeToken, CancellationToken cancellationToken)
     {
         gTween.Play();
+
+        cancellationToken.Register(gTween.Kill);
+        completeToken.Register(gTween.Complete);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
+    }
+    
+    /// <summary>
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will not be paused when GetTree().Paused is set to true.
+    /// </summary>
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="completeToken">A token to complete the GTween's execution.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    public static Task PlayUnpausableAsync(this GTween gTween, CancellationToken completeToken, CancellationToken cancellationToken)
+    {
+        gTween.PlayUnpausable();
 
         cancellationToken.Register(gTween.Kill);
         completeToken.Register(gTween.Complete);

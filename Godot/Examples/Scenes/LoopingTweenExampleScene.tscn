@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmhhu2i1krsn2"]
 
 [ext_resource type="Script" path="res://GTweensGodot/Godot/Examples/Scripts/LoopingTweenExample.cs" id="1_bt2qu"]
-[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTWeensGodot-Examples-BlueSquare.png" id="2_nc0d2"]
+[ext_resource type="Texture2D" uid="uid://cik0j4hik2jqn" path="res://GTweensGodot/Godot/Examples/Textures/GTweensGodot-Examples-BlueSquare.png" id="2_nc0d2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6j7qb"]
 
