@@ -120,7 +120,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
     }
     ```
 
-- **Godot pause support**: GTweens supports changes to `GetTree().Paused`:
+- **Godot pause support**: GTweens supports changes to [GetTree().Paused](https://docs.godotengine.org/en/stable/tutorials/scripting/pausing_games.html):
     ```csharp
     tween.Play(); // Will be paused when GetTree().Paused is set to true
     tween.PlayUnpausable(); // Won't be paused when GetTree().Paused is set to true
