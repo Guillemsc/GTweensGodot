@@ -12,7 +12,7 @@
 GTweens-Godot is a lightweight and versatile tweening library for Godot 4 with C#. 
 This library simplifies the process of creating animations and transitions in your Godot projects, allowing you to bring your game elements to life with ease.
 
-Unlike the default Godot tweening engine, which relies on nodes and their properties to create animations, this tweening engine doesn't require the use of nodes. 
+Unlike the default Godot tweening engine, which relies on nodes and their string properties to create animations, this tweening engine doesn't require the use of nodes. 
 
 An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens) library.
 
@@ -242,7 +242,7 @@ GTween tween = GTweenGodotExtensions.Tween(
 ```
 
 ### Shortcut tweening
-GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can start a tween directly from a reference to these objects, like:
+GTweem includes shortcuts for some known C# and Godot objects, like Node2D, Node3D, Control, etc. You can create a tween directly from a reference to these objects, like:
 ```csharp
 node2D.TweenPositionX(100f, 1f);
 node3D.TweenScale(new Vector3(2f, 2f, 2f), 1f);
@@ -254,7 +254,7 @@ See all [shortcuts you can use](#-shortcuts).
 Sequences are a combination of tweens that get animated as a group. 
 Sequences can be contained inside other sequences without any limit to the depth of the hierarchy.
 To create sequences, you need to use the helper `GTweenSequenceBuilder`.
-- First you call to start creating a new sequence `New()`.
+- First you call to start creating a new sequence with `GTweenSequenceBuilder.New()`.
 - Next you `Append()` or `Join()` any tweens to the sequence.
 	- **Append**: Adds the given tween to the end of the Sequence. This tween will play after all the previous tweens have finished.
 	- **Join**: Inserts the given tween at the same time position of the last tween added to the Sequence. This tween will play at the same time as the previous tween.
@@ -316,5 +316,8 @@ These are the currently avaliable shortcuts for Godot nodes (the list grows with
 - **CanvasItem**: Modulate, SelfModulate.
 - **ShaderMaterial**: PropertyInt, PropertyFloat, PropertyVector2, PropertyVector2I, PropertyColor.
 - **BaseMaterial3D**: AlbedoColor, Metallic, MetallicSpecular, Roughness.
+
+  ![Reddit](https://github.com/Guillemsc/GTweensGodot/assets/17142208/f03cca23-94b5-484b-8202-0d1961b14f98)
+
   
  
