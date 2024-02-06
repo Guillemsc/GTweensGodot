@@ -119,6 +119,12 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
         await tween2.PlayAsync(cancellationToken);
     }
     ```
+
+- **Godot pause support**: GTweens supports changes to `GetTree().Paused`:
+    ```csharp
+    tween.Play(); // Will be paused when GetTree().Paused is set to true
+    tween.PlayUnpausable(); // Won't be paused when GetTree().Paused is set to true
+    ```
   
 - **Safety**: When a node that's being tweened becomes invalid or gets destroyed, the tween automatically handles that on a safe manner, and kills itself.
 
