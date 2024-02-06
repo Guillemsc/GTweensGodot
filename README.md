@@ -141,12 +141,9 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
 2. Create a new node script, anywhere in your project, that's going to update all the tweens. Copy and paste the code from here:
     ```csharp
-    public partial class GTweensGodotUpdater : Node
+    public partial class GTweensGodotUpdater : GodotGTweensContextNode
     {
-        public override void _Process(double delta)
-        {
-            GodotGTweensContext.Instance.Context.Tick((float)delta);
-        }
+      
     }
     ```
 3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select the `GTweensGodotUpdater.cs` we just created, to be autoloaded.
