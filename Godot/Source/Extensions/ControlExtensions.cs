@@ -187,7 +187,7 @@ public static class ControlExtensions
     {
         return GTweenExtensions.Tween(
             () => target.PivotOffset.Y,
-            current => target.PivotOffset = new Vector2(current, target.PivotOffset.Y), 
+            current => target.PivotOffset = new Vector2(target.PivotOffset.X, current), 
             to, 
             duration,
             GodotObjectExtensions.GetGodotObjectValidationFunction(target)
