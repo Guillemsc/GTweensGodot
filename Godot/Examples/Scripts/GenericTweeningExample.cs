@@ -16,6 +16,8 @@ public partial class GenericTweeningExample : Node
             new Vector2(100, 100),
             1
         );
+        tween.SetDelay(1);
+        tween.SetLoops(3);
         tween.Play();
     }
 }
