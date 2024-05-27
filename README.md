@@ -299,7 +299,8 @@ As it can be seen on the example, you can Append/Join different things with the 
 - **SetTimeScale**: sets the time scale that will be used to tick the tween. Set to 1 by default.
 
 ### Tasks
-- **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed.
+- **PlayConfiguredAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed. Allows you to configure the process mode, and if it will be paused if `GetTree().Paused` is set to true
+- **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed. Runs on the `_Process` method. Won't be paused if `GetTree().Paused` is set to true.
 - **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
 
 ## 📖 Shortcuts
