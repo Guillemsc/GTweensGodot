@@ -1,6 +1,7 @@
 using Godot;
 using GTweens.Enums;
 using GTweensGodot.Extensions;
+using GTweensGodot.Godot.Source.Enums;
 
 namespace GTweensGodot.Examples;
 
@@ -19,7 +20,7 @@ public partial class PauseGameExample : Node
         
         UnpausableTarget.TweenRotationDegreesX(360, 2, RotationMode.TotalDistance)
             .SetMaxLoops()
-            .PlayUnpausable();
+            .PlayConfigured(ProcessType.Normal, true);
 
         TogglePauseButton.Connect("pressed", Callable.From(Toggle));
     }

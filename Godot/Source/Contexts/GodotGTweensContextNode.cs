@@ -15,9 +15,21 @@ public partial class GodotGTweensContextNode : Node
         
         if (!GetTree().Paused)
         {
-            GodotGTweensContext.Instance.PausableContext.Tick(floatDelta);   
+            GodotGTweensContext.Instance.NormalPausableContext.Tick(floatDelta);   
         }
         
-        GodotGTweensContext.Instance.UnpausableContext.Tick(floatDelta);
+        GodotGTweensContext.Instance.NormalUnpausableContext.Tick(floatDelta);
+    }
+
+    public sealed override void _PhysicsProcess(double delta)
+    {
+        float floatDelta = (float)delta;
+        
+        if (!GetTree().Paused)
+        {
+            GodotGTweensContext.Instance.PhysicsPausableContext.Tick(floatDelta);   
+        }
+        
+        GodotGTweensContext.Instance.PhysicsUnpausableContext.Tick(floatDelta);
     }
 }

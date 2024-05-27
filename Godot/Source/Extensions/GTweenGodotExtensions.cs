@@ -8,6 +8,7 @@ using GTweens.TweenBehaviours;
 using GTweens.Tweeners;
 using GTweens.Tweens;
 using GTweensGodot.Contexts;
+using GTweensGodot.Godot.Source.Enums;
 using GTweensGodot.Tweeners;
 
 namespace GTweensGodot.Extensions;
@@ -144,23 +145,70 @@ public static class GTweenGodotExtensions
 
         return gTween.SetEasing(curve.ToEasingDelegate());
     }
+
+    /// <summary>
+    /// Plays the specified tween in a configured context based on the provided process type and pause behaviour.
+    /// </summary>
+    /// <param name="tween">The tween instance to play.</param>
+    /// <param name="processType">The type of process mode in which to play the tween. It can be either normal or physics.</param>
+    /// <param name="unpausable"> If unpausable is set to true, the tween will never pause, even when GetTree().Paused is set to true.</param>
+    public static void PlayConfigured(this GTween tween, ProcessType processType, bool unpausable)
+    {
+        switch (processType)
+        {
+            default:
+            {
+                if (unpausable)
+                {
+                    GodotGTweensContext.Instance.NormalUnpausableContext.Play(tween);
+                }
+                else
+                {
+                    GodotGTweensContext.Instance.NormalPausableContext.Play(tween);
+                }
+                break;
+            }
+            
+            case ProcessType.Physics:
+            {
+                if (unpausable)
+                {
+                    GodotGTweensContext.Instance.PhysicsUnpausableContext.Play(tween);
+                }
+                else
+                {
+                    GodotGTweensContext.Instance.PhysicsPausableContext.Play(tween);
+                }
+                break;
+            }
+        }
+    }
     
     /// <summary>
     /// Plays a GTween. This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="tween">The GTween to play.</param>
+    /// <remarks>This method will play in ProcesType <see cref="ProcessType.Normal"/> and be unpausable.</remarks>
     public static void Play(this GTween tween)
     {
-        GodotGTweensContext.Instance.PausableContext.Play(tween);
+        tween.PlayConfigured(ProcessType.Normal, false);
     }
     
     /// <summary>
-    /// Plays a GTween. This tween will not be paused when GetTree().Paused is set to true.
+    /// Plays a GTween. This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="tween">The GTween to play.</param>
-    public static void PlayUnpausable(this GTween tween)
+    /// <param name="processType">The type of process mode in which to play the tween. It can be either normal or physics.</param>
+    /// <param name="unpausable"> If unpausable is set to true, the tween will never pause, even when GetTree().Paused is set to true.</param>
+    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
+    public static void PlayConfigured(this GTween tween, ProcessType processType, bool unpausable, bool instantly)
     {
-        GodotGTweensContext.Instance.UnpausableContext.Play(tween);
+        tween.PlayConfigured(processType, unpausable);
+
+        if (instantly)
+        {
+            tween.Complete();   
+        }
     }
 
     /// <summary>
@@ -168,29 +216,29 @@ public static class GTweenGodotExtensions
     /// </summary>
     /// <param name="tween">The GTween to play.</param>
     /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
+    /// <remarks>This method will play in ProcesType <see cref="ProcessType.Normal"/> and be unpausable.</remarks>
     public static void Play(this GTween tween, bool instantly)
     {
-        tween.Play();
-
-        if (instantly)
-        {
-            tween.Complete();   
-        }
+        tween.PlayConfigured(ProcessType.Normal, instantly, false);
     }
     
     /// <summary>
-    /// Plays a GTween. This tween will not be paused when GetTree().Paused is set to true.
+    /// Asynchronously plays a GTween and awaits its completion or cancellation.
+    /// If the cancellationToken cancellation is requested, the tween will be killed.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
-    /// <param name="tween">The GTween to play.</param>
-    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
-    public static void PlayUnpausable(this GTween tween, bool instantly)
+    /// <param name="gTween">The GTween to play.</param>
+    /// <param name="processType">The type of process mode in which to play the tween. It can be either normal or physics.</param>
+    /// <param name="unpausable"> If unpausable is set to true, the tween will never pause, even when GetTree().Paused is set to true.</param>
+    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    public static Task PlayConfiguredAsync(this GTween gTween, ProcessType processType, bool unpausable, CancellationToken cancellationToken)
     {
-        tween.PlayUnpausable();
+        gTween.PlayConfigured(processType, false);
 
-        if (instantly)
-        {
-            tween.Complete();   
-        }
+        cancellationToken.Register(gTween.Kill);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
     }
     
     /// <summary>
@@ -201,30 +249,34 @@ public static class GTweenGodotExtensions
     /// <param name="gTween">The GTween to play.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
+    /// <remarks>This method will play in ProcesType <see cref="ProcessType.Normal"/> and be unpausable.</remarks>
     public static Task PlayAsync(this GTween gTween, CancellationToken cancellationToken)
     {
-        gTween.Play();
-
-        cancellationToken.Register(gTween.Kill);
-            
-        return gTween.AwaitCompleteOrKill(cancellationToken);
+        return gTween.PlayConfiguredAsync(ProcessType.Normal, false, cancellationToken);
     }
     
     /// <summary>
     /// Asynchronously plays a GTween and awaits its completion or cancellation.
     /// If the cancellationToken cancellation is requested, the tween will be killed.
-    /// This tween will not be paused when GetTree().Paused is set to true.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="gTween">The GTween to play.</param>
+    /// <param name="processType">The type of process mode in which to play the tween. It can be either normal or physics.</param>
+    /// <param name="unpausable"> If unpausable is set to true, the tween will never pause, even when GetTree().Paused is set to true.</param>
+    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    public static Task PlayUnpausableAsync(this GTween gTween, CancellationToken cancellationToken)
+    public static Task PlayConfiguredAsync(this GTween gTween, ProcessType processType, bool unpausable, bool instantly, CancellationToken cancellationToken)
     {
-        gTween.PlayUnpausable();
-
-        cancellationToken.Register(gTween.Kill);
-            
-        return gTween.AwaitCompleteOrKill(cancellationToken);
+        if (!instantly)
+        {
+            return gTween.PlayConfiguredAsync(processType, unpausable, cancellationToken);
+        }
+        
+        gTween.PlayConfigured(processType, unpausable);
+        gTween.Complete();
+        
+        return Task.CompletedTask;
     }
     
     /// <summary>
@@ -236,39 +288,37 @@ public static class GTweenGodotExtensions
     /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
+    /// <remarks>This method will play in ProcesType <see cref="ProcessType.Normal"/> and be unpausable.</remarks>
     public static Task PlayAsync(this GTween gTween, bool instantly, CancellationToken cancellationToken)
     {
-        if (!instantly)
-        {
-            return gTween.PlayAsync(cancellationToken);
-        }
-        
-        gTween.Play();
-        gTween.Complete();
-        
-        return Task.CompletedTask;
+        return gTween.PlayConfiguredAsync(ProcessType.Normal, instantly, cancellationToken);
     }
     
     /// <summary>
     /// Asynchronously plays a GTween and awaits its completion or cancellation.
     /// If the cancellationToken cancellation is requested, the tween will be killed.
-    /// This tween will not be paused when GetTree().Paused is set to true.
+    /// This tween will be paused when GetTree().Paused is set to true.
     /// </summary>
     /// <param name="gTween">The GTween to play.</param>
-    /// <param name="instantly">If set to true, sets the tween as completed after playing, making it reach the end instantly.</param>
+    /// <param name="processType">The type of process mode in which to play the tween. It can be either normal or physics.</param>
+    /// <param name="unpausable"> If unpausable is set to true, the tween will never pause, even when GetTree().Paused is set to true.</param>
+    /// <param name="completeToken">A token to complete the GTween's execution.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    public static Task PlayUnpausableAsync(this GTween gTween, bool instantly, CancellationToken cancellationToken)
+    public static Task PlayConfiguredAsync(
+        this GTween gTween, 
+        ProcessType processType, 
+        bool unpausable, 
+        CancellationToken completeToken, 
+        CancellationToken cancellationToken
+        )
     {
-        if (!instantly)
-        {
-            return gTween.PlayUnpausableAsync(cancellationToken);
-        }
-        
-        gTween.Play();
-        gTween.Complete();
-        
-        return Task.CompletedTask;
+        gTween.PlayConfigured(processType, unpausable);
+
+        cancellationToken.Register(gTween.Kill);
+        completeToken.Register(gTween.Complete);
+            
+        return gTween.AwaitCompleteOrKill(cancellationToken);
     }
     
     /// <summary>
@@ -280,32 +330,9 @@ public static class GTweenGodotExtensions
     /// <param name="completeToken">A token to complete the GTween's execution.</param>
     /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
+    /// <remarks>This method will play in ProcesType <see cref="ProcessType.Normal"/> and be unpausable.</remarks>
     public static Task PlayAsync(this GTween gTween, CancellationToken completeToken, CancellationToken cancellationToken)
     {
-        gTween.Play();
-
-        cancellationToken.Register(gTween.Kill);
-        completeToken.Register(gTween.Complete);
-            
-        return gTween.AwaitCompleteOrKill(cancellationToken);
-    }
-    
-    /// <summary>
-    /// Asynchronously plays a GTween and awaits its completion or cancellation.
-    /// If the cancellationToken cancellation is requested, the tween will be killed.
-    /// This tween will not be paused when GetTree().Paused is set to true.
-    /// </summary>
-    /// <param name="gTween">The GTween to play.</param>
-    /// <param name="completeToken">A token to complete the GTween's execution.</param>
-    /// <param name="cancellationToken">A token to cancel the GTween's execution.</param>
-    /// <returns>A Task representing the asynchronous operation.</returns>
-    public static Task PlayUnpausableAsync(this GTween gTween, CancellationToken completeToken, CancellationToken cancellationToken)
-    {
-        gTween.PlayUnpausable();
-
-        cancellationToken.Register(gTween.Kill);
-        completeToken.Register(gTween.Complete);
-            
-        return gTween.AwaitCompleteOrKill(cancellationToken);
+        return gTween.PlayConfiguredAsync(ProcessType.Normal, false, completeToken, cancellationToken);
     }
 }
