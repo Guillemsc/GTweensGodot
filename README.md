@@ -289,8 +289,11 @@ As it can be seen on the example, you can Append/Join different things with the 
 ![ezgif com-gif-maker](https://github.com/Guillemsc/GTweensGodot/assets/17142208/92e01c51-a9e8-43c4-a5d8-280ea03d4ae9)
 
 ### Tween controls
-- **PlayConfigured**: plays the tween. Allows you to configure the process mode, and if it will be paused if `GetTree().Paused` is set to true.
-- **Play**: plays the tween. Runs on the `_Process` method. Won't be paused if `GetTree().Paused` is set to true.
+- **PlayConfigured**: plays the tween. 
+	- Allows you to configure the process mode.
+  	- Allows you to configure if it will be paused if `GetTree().Paused` is set to true.
+  	- If the parameter `instantly` is set to true, the tween will be instantly completed after starting (will reach the end of the sequence).
+- **Play**: plays the tween. Runs on the `_Process` method. Will be paused if `GetTree().Paused` is set to true.
 - **Kill**: kills the tween. This means that the tween will instantly stop playing, leaving it at its current state.
 - **Complete**: instantly reaches the final state of the tween, and stops playing.
 - **Reset**: sets the tween to its initial state, and stops playing.
@@ -299,8 +302,12 @@ As it can be seen on the example, you can Append/Join different things with the 
 - **SetTimeScale**: sets the time scale that will be used to tick the tween. Set to 1 by default.
 
 ### Tasks
-- **PlayConfiguredAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed. Allows you to configure the process mode, and if it will be paused if `GetTree().Paused` is set to true
-- **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed. Runs on the `_Process` method. Won't be paused if `GetTree().Paused` is set to true.
+- **PlayConfiguredAsync**: plays the tween and returns a Task that waits until the tween is killed or completed.
+ 	- Allows you to configure the process mode.
+  	- Allows you to configure if it will be paused if `GetTree().Paused` is set to true.
+  	- If the parameter `instantly` is set to true, the tween will be instantly completed after starting (will reach the end of the sequence).
+  	- If the parameter CancellationToken is cancelled, the tween will be killed.
+- **PlayAsync**: plays the tween and returns a Task that waits until the tween is killed or completed. If the parameter CancellationToken is cancelled, the tween will be killed. Runs on the `_Process` method. Will be paused if `GetTree().Paused` is set to true.
 - **AwaitCompleteOrKill**: returns a Task that waits until the tween is killed or completed.
 
 ## 📖 Shortcuts
