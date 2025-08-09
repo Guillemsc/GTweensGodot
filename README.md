@@ -142,7 +142,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 3. Download then install the asset.
 
 4. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals)`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be [autoloaded](https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html).
-<img width="1198" height="241" alt="image" src="https://github.com/user-attachments/assets/aa9d8e6a-e078-4c16-8a59-7abdb640f151" />
+<img width="1192" height="257" alt="image" src="https://github.com/user-attachments/assets/c37a1450-6664-4a08-9fd8-0bda9c660dac" />
+
 
 
 ### From NuGet:
