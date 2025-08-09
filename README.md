@@ -141,10 +141,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 
 3. Download then install the asset.
 
-4. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals)`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be [autoloaded](https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html).
+4. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals/Autoload)`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be [autoloaded](https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html).
 <img width="1192" height="257" alt="image" src="https://github.com/user-attachments/assets/c37a1450-6664-4a08-9fd8-0bda9c660dac" />
-
-
 
 ### From NuGet:
 1. Install the [GTweensGodot NuGet package](https://www.nuget.org/packages/GTweensGodot/) in your godot project.
@@ -155,7 +153,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
       
     }
     ```
-3. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals)`, and select the `GTweensGodotUpdater.cs` we just created, to be [autoloaded](https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html).
+3. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals/Autoload)`, and select the `GTweensGodotUpdater.cs` we just created, to be [autoloaded](https://docs.godotengine.org/en/4.4/tutorials/scripting/singletons_autoload.html).
    
     To quickly check if everything has been setup properly, you can create a new script with this code, and assign any `Node2D` to the `Target` export, and play it.
     ```csharp
@@ -175,7 +173,8 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 ### From releases:
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
-3. On the Godot editor, go to `Project/Project Settings/Autoload`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+3. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals/Autoload)`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
+4. <img width="1192" height="257" alt="image" src="https://github.com/user-attachments/assets/c37a1450-6664-4a08-9fd8-0bda9c660dac" />
 
 > [!WARNING]
 > If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project,
