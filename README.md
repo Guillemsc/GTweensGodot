@@ -174,7 +174,7 @@ An extension that builds upon the [GTweens](https://github.com/Guillemsc/GTweens
 1. [Download the latest GTweensGodot.zip release](https://github.com/Guillemsc/GTweensGodot/releases/latest).
 2. Unpack the `GTweensGodot.zip` folder into the Godot's project root folder.
 3. On the Godot editor, go to `Project/Project Settings/Autoload(or Globals/Autoload)`, and select `GTweensGodot/Godot/Source/Contexts/GodotGTweensContextNode.cs` to be autoloaded.
-4. <img width="1192" height="257" alt="image" src="https://github.com/user-attachments/assets/c37a1450-6664-4a08-9fd8-0bda9c660dac" />
+<img width="1192" height="257" alt="image" src="https://github.com/user-attachments/assets/c37a1450-6664-4a08-9fd8-0bda9c660dac" />
 
 > [!WARNING]
 > If the example scenes cannot be opened, it probably means that the contents of `GTweensGodot.zip` were not placed on the root of your project,
